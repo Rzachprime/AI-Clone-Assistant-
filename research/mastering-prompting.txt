@@ -1,0 +1,1723 @@
+
+
+=== PAGE 1 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+1
+
+=== PAGE 2 ===
+
+This book is lovingly dedicated to my colleagues at IBM, who share my passion for 
+artificial intelligence. Your enthusiasm inspires me daily. 
+To those already immersed in the fascinating world of AI - thank you for blazing trails 
+and guiding others. And to those just dipping your toes into AI's vast waters - I'm thrilled 
+to take this journey of discovery together. 
+I'm endlessly grateful to my supportive CIC PH Business Operations team, who 
+championed this book every step of the way. Your encouragement kept me writing 
+during late nights and weekends. This book would not exist without you. 
+Whether you're an AI veteran or a rookie, I hope this book sparks your imagination. May 
+it equip you with skills to meet the future boldly. But most importantly, may it fuel our 
+community that believes in technology empowering people for good. Let's keep 
+learning! 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+                     -     Choi / santosro@ph.ibm.com (2023)
+
+=== PAGE 3 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+3 
+ 
+Disclaimer 
+This book discusses numerous AI tools that are external to IBM. Generative AI 
+technologies like Bard and Chat-GPT rely on user inputs.  
+ 
+Do not provide confidential, internal IBM or client data to these systems. All 
+employees must comply with IBM data privacy and sharing policies outlined in 
+Section 3 of the BCG 2023 course. 
+While exploration of new AI tools is encouraged, use good judgment when 
+deciding what information to supply. Refrain from jeopardizing IBM data or 
+sharing beyond IBM channels. When using AI systems, employees are 
+responsible for protecting IBM's intellectual property and client data. 
+ 
+For more information, please visit the following links:  
+BCG 2023 
+Sensitive Personal Information 
+IBM Data Classification 
+IBM Confidential Data
+
+=== PAGE 4 ===
+
+Contents 
+Introduction ................................ ................................ ................................ ..............................  6 
+A brief overview of AI Prompting ................................ ................................ .................... 6 
+The growing role of AI in business ................................ ................................ .................... 8 
+What to Expect from the eBook ................................ ................................ .....................10 
+Chapter 1: Understanding AI and AI Prompting ................................ ................................ ..11 
+Simplified Explanation of Artificial Intelligence................................ .............................. 11 
+Introduction to AI prompting: what it is and how it works. ................................ ...........13 
+Importance and uses of AI prompting in various industries. ................................ ........17 
+Chapter 2: The Role of Data in AI Prompting ................................ ................................ .......20 
+Explanation of training data ................................ ................................ ........................... 20 
+The Role of data quality and Diversity in AI Prompting ................................ ................23 
+Real-world examples of data usage in AI prompting ................................ ..................25 
+Chapter 3: Crafting Effective AI Prompts ................................ ................................ .............28 
+Techniques for generating effective prompts. ................................ ............................. 29 
+Importance of context and clarity in prompts ................................ .............................. 33 
+Chapter 4: Real-Life Business Applications of AI Prompting ................................ ................35 
+AI prompting in customer service: Chatbots. ................................ ................................ 35 
+AI prompting in content creation: blogging, social media, advertising. ....................37 
+AI prompting in data analysis: market trends, customer behavior. ............................ 39 
+Chapter 5: Case Studies ................................ ................................ ................................ ........42 
+Detailed examples of successful AI prompting in various businesses ......................... 43 
+Lessons learned from these case studies ................................ ................................ .......46 
+Chapter 6: Overcoming Challenges in AI Prompting ................................ .......................... 47 
+Understanding the limitations of AI responses ................................ ............................... 49 
+Strategies for refining prompts to achieve desired results ................................ ............53 
+Navigating ethical considerations and data privacy issues ................................ ........55 
+Chapter 7: Future Trends in AI Prompting ................................ ................................ .............56 
+Predictions for the future of AI prompting in business ................................ ...................57 
+Emerging technologies and their potential impact ................................ .....................59 
+Encouragement for continued learning and exploration................................ ............61 
+Conclusion ................................ ................................ ................................ .............................. 62 
+Recap of key points covered in the eBook ................................ ................................ ...62
+
+=== PAGE 5 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+5 
+ 
+The importance of AI prompting in the modern business landscape ......................... 63 
+Final thoughts and encouragement for practical application of learned concepts
+ ................................ ................................ ................................ ................................ ..........65 
+My Personal Prompt ‘Cheat Sheet’ ................................ ................................ .......................66 
+Verbs ................................ ................................ ................................ ................................ .66 
+Tone ................................ ................................ ................................ ................................ ..69 
+Roles/Persona ................................ ................................ ................................ ..................71 
+Show as Output ................................ ................................ ................................ ...............74 
+About The Cover ................................ ................................ ................................ ....................77 
+About the Author ................................ ................................ ................................ ....................78 
+Sources ................................ ................................ ................................ ................................ ....79 
+Prompting Guides ................................ ................................ ................................ ............79 
+Ethical AI ................................ ................................ ................................ ........................... 79 
+Tools ................................ ................................ ................................ ................................ ..79 
+Miscellaneous ................................ ................................ ................................ ..................79
+
+=== PAGE 6 ===
+
+Introduction 
+A brief overview of AI Prompting 
+Artificial intelligence (AI) systems like DALL-E and Midjourney use text prompts as inputs 
+to generate images. A prompt is a detailed text description of the image you want the 
+AI to create. Crafting effective prompts is vital to getting great results from AI art 
+generators. 
+ 
+Prompts allow you to guide the AI by specifying objects, styles, compositions, moods, 
+and other elements. You can be as vague or specific as you need. A simple prompt 
+might say, "A cute puppy." A more complex prompt could describe the breed, color, 
+background, lighting, and other details. 
+ 
+ 
+Adobe Firefly’s rendition of ‘A cute puppy.’ 
+The AI uses natural language processing to "understand" the prompt and generate an 
+image matching the description. Prompts function like you're giving verbal instructions 
+to a skilled artist. The better and more detailed the prompt, the closer the result will be 
+to what you imagined.
+
+=== PAGE 7 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+7 
+ 
+ 
+‘A cute black and white Pomeranian sitting on a grass bed.’ By Stable Diffusion 
+ 
+Prompting is a learned skill that improves with practice. Start simple and get more 
+elaborate as you learn how different words and phrases affect the outcome. Pay 
+attention to what works and build off of that. You can create stunning AI art tailored to 
+your vision with thoughtful prompts.
+
+=== PAGE 8 ===
+
+The growing role of AI in business 
+Artificial intelligence (AI) is rapidly transforming businesses and industries worldwide. As 
+AI capabilities advance, companies increasingly adopt these technologies to 
+empower employees, boost productivity, cut costs, and gain competitive advantages. 
+ 
+One of the most significant benefits of AI is enabling people to focus on higher-value 
+and more strategic tasks. For example, AI chatbots can handle customer service 
+queries while humans handle complex issues. Finance departments use AI to automate 
+routine bookkeeping, freeing staff to analyze data and glean business insights. AI 
+supplies sales teams with leads, provides marketers with content ideas, screen resumes 
+in HR, and more. 
+ 
+ 
+‘Making job-filling more fulfilling.’ 
+Some of the incredible features IBM Watson Orchestrate can offer for Human Resources. 
+AI also brings unprecedented efficiencies. It streamlines supply chains via predictive 
+modeling, optimizes campaigns through customization, and reduces risks by flagging 
+process flaws or cybersecurity threats. Bots speed up software testing, contract reviews, 
+accounting reconciliations, and other repetitive tasks.
+
+=== PAGE 9 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+9 
+ 
+Further, AI uncovers insights from big data that would be impossible for humans alone. It 
+spots trends, predicts outcomes, and prescribes actions based on large-scale data 
+analysis. This data-driven decision-making minimizes risks and maximizes returns. 
+While some fear AI will replace jobs, its more significant impact is augmenting human 
+capabilities and enabling people to perform at new levels. AI doesn't replace critical 
+thinking but enhances it with insights and automation. Adopting AI creates more 
+engaging roles where people apply expertise. 
+ 
+  
+Phrasee's AI can generate and test different versions of marketing copy to see which ones perform best. 
+ 
+Forward-looking companies are actively incorporating AI across operations. AI can 
+propel businesses' productivity, profitability, and success with responsible 
+implementation.
+
+=== PAGE 10 ===
+
+What to Expect from the eBook 
+This comprehensive ebook equips readers with strategies and insights to leverage AI 
+prompting for business success. You'll understand clearly how prompting works and why 
+crafting effective prompts is crucial for generating on-target AI output. 
+ 
+Through real-world examples and practical exercises, you'll discover proven techniques 
+for writing prompts optimized for your goals. Learn how to embed context, personality, 
+and the precise instructions needed to drive AI tools like chatbots, content creators, 
+customer support agents, and more. 
+ 
+ 
+ElevenLabs can create engaging audio content, such as audiobooks, podcasts, and educational videos. 
+The AI-powered text-to-speech engine can generate lifelike speech with human intonation and inflections. 
+ 
+Discover prompting strategies for numerous business functions. Guidance for prompts 
+that improve operations, analytics, marketing, HR, and other areas reveals prompting's 
+versatile applications. Illuminating case studies exemplify successful deployments across 
+diverse industries. 
+You'll also uncover common challenges like ethical concerns and limitations in AI 
+capabilities. Recommendations to refine prompts help you work around these issues to 
+achieve desired results. Eye-opening discussions on emerging technologies glimpse 
+prompting's potential while encouraging continual skills development. 
+Whether you're new to prompting or want to take your skills to the next level, this ebook 
+empowers you to maximize prompting for competitive advantage. You'll gain 
+confidence in providing prompts that extract AI's full potential while aligning outputs to 
+your brand, values, and objectives.  
+Start executing prompting techniques for transformative business impact.
+
+=== PAGE 11 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+11 
+ 
+Chapter 1: Understanding AI and AI Prompting 
+Simplified Explanation of Artificial Intelligence 
+Artificial intelligence, or AI, is when machines seem smart! 
+Do you know how your mom or dad, or grandma is good at thinking? Well, scientists 
+wanted to make machines that could think too! 
+They worked very hard to develop unique programs that let computers learn things. 
+Computers can learn by looking at many pictures or words, just like how you learn at 
+school! 
+After looking at so much information, the computer better recognizes things in the 
+pictures and understands the words. Then it can use what it learned to do helpful jobs, 
+like reading comments out loud or showing you items you might want to buy. 
+Some AI can talk back and forth with you too! You can ask it questions, and it will try to 
+give you answers, like a robot friend. Its solutions might only sometimes make sense, but 
+scientists try to make AI smarter daily. 
+AI can be used for many things. Businesses use AI to show people ads, answer 
+questions, and even make art or songs! Hospitals can use it to examine X-rays or test 
+results to find problems. Apps use it to suggest fun movies or games you might like.
+
+=== PAGE 12 ===
+
+Netflix uses AI to suggest movies and TV shows to its users based on their viewing history, ratings, and other 
+factors.  
+The AI system constantly learns and adapts, making suggestions more personalized. 
+So, AI still needs more time to think like people. But it's getting smarter all the time! And 
+it's already helping make our lives better in so many ways. The future will have even 
+smarter AI to help with all kinds of amazing things!
+
+=== PAGE 13 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+13 
+ 
+Introduction to AI prompting: what it is and how it works. 
+ 
+How we talk to machines for the past decades (up to now). Also, the first thing non-technical people think 
+of when they hear ‘computer hacking’ – Image from hacker typer 
+In the past, the only way to get a computer to do something was to write code in a 
+programming language like Python or JavaScript. The code is exact but also complex. 
+Using strict syntax rules, you had to spell every step the computer should take. Even 
+simple tasks required many lines of code. 
+For example, to get a computer to print "Hello World," you'd need a code snippet like: 
+ 
+The code must follow exact syntax and structure for the computer to understand. One 
+tiny typo would break the whole program. 
+AI prompting does away with all that rigid coding. Instead, you interface with the AI 
+using natural conversational language - the same way you would communicate with a 
+person. 
+To tell an AI system to generate "Hello World," you prompt it with those exact words: 
+"Generate an image that says Hello World."
+
+=== PAGE 14 ===
+
+Much simpler! The AI is pre-trained to comprehend natural language. You don't have to 
+abide by programming syntax. Just phrase the instructions using everyday words and 
+sentences. 
+This conversational interface makes AI much more accessible. Anyone can prompt AI 
+without coding expertise. All you need is to describe what you want in plain language. 
+That's a skill we all have. 
+ 
+So, AI prompting removes the programming barrier between humans and computers. 
+We can now talk to AI like a teammate and collaborate intuitively. It's a giant leap 
+forward compared to rigid coding being the only option in the past. AI prompting is 
+giving instructions to AI systems using natural language.  
+ 
+  
+The Quantum Theory For Toddlers. Ft. ChatGPT 
+ 
+The AI system is pre-trained to understand human language. It uses natural language 
+processing (NLP) to analyze the words and sentences in a prompt. NLP helps the AI 
+recognize vocabulary, grammar, word relationships, context, and meaning.
+
+=== PAGE 15 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+15 
+ 
+For example, if your prompt for an image generation AI with "a cute puppy playing in a 
+field of yellow flowers," it picks out keywords like "cute," "puppy," "playing," "field," and 
+"yellow flowers." It knows these words relate to the visuals of what you want to see in the 
+image. 
+ 
+The AI also considers the relationships between the words and how they combine to 
+imply certain features. It understands that "yellow” and "flowers" go together, and the 
+puppy should be interacting with the flowers in the image. 
+ 
+ 
+Prompt: a cute puppy playing in a field of yellow flowers by deepai.org 
+The AI generates an image matching the description based on its NLP training. The 
+better the prompt, the better the result will align with your envisioned.
+
+=== PAGE 16 ===
+
+Different AI tools are trained on vast datasets of text, images, sounds, code, or other 
+data relevant to their purpose. The training teaches the AI to produce relevant outputs 
+for user prompts. 
+You are only limited by your imagination regarding use cases in AI. It is a subject matter 
+expert you can converse with at any time. Imagine having someone close to you who 
+has read every book, seen every movie, heard every song, seen trillions of pictures, 
+memorized, and knows any instruction manual by heart. AI is a time-saver for anyone 
+who uses it.
+
+=== PAGE 17 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+17 
+ 
+Importance and uses of AI prompting in various industries. 
+Let’s recap what ‘Prompts’ are and introduce what ‘Models’ are for in AI.  
+A prompt is the text instruction that guides an AI system to generate a desired output. 
+Prompt engineering is crafting effective prompts optimized for the AI model.  
+AI models are the algorithms that power AI systems like ChatGPT, DALL-E, and others. 
+The model generates the text, images, or other outputs when you provide a prompt. 
+An AI model is trained on massive datasets relevant to its purpose. For example, a text 
+generation model like GPT-3 is trained on millions of web pages, books, articles, and 
+other texts. An image model like DALL-E is trained on millions of real-world images.    
+The training teaches the model the relationships between words, concepts, visual 
+elements, and other patterns in the training data. The model develops capabilities 
+based on these learned relationships. 
+After training, the model can receive new prompts and generate outputs based on 
+training. For a text model, it predicts word sequences that logically follow the prompt. 
+For an image model, it renders pixels forming the described scene. 
+ 
+A simple illustration showing how from “training,” the model can “predict” based on the images of cats it 
+has on its dataset can infer what image a user submitted for recognition. In this case, a “cat.” 
+The outputs reflect what the model "learned" about how words or images relate based 
+on its training data. The quality and relevance of results depend on having a well-
+trained model. 
+An AI model is the intelligent, trained algorithm powering an AI application. The model 
+produces outputs by applying its training to the new prompt inputs supplied by users.
+
+=== PAGE 18 ===
+
+The model is like the brain, while the prompt is the instructions telling this brain what to 
+generate. 
+ 
+Prompting is crucial for extracting beneficial results from AI across many industries: 
+Marketing: AI can generate advertising copy, emails, social posts, and website content 
+from prompts outlining the campaign goals, audience, brand voice, and critical 
+messages. Prompts help scale content production and keep messaging on-brand. 
+ 
+A marketer can use this simple but effective prompt to figure out when the traffic is at its peak to rake in 
+views. 
+ 
+Media/Communications: Journalists can use prompts to get AI-written articles covering 
+basic facts and news events, freeing them to focus on value-added analysis. PR teams 
+can quickly produce press releases, presentations, and pitch materials from prompts. 
+ 
+Using this prompt, a journalist can save time getting the gist of lengthy topics. 
+ 
+Healthcare: Doctors can describe patient symptoms in a prompt to have AI search 
+medical records for relevant insights—it also prompts power AI chatbots that offer 
+essential medical advice and triage based on user-reported symptoms. 
+ 
+Doctors can save time on research by using the computational power of AI and the internet to be up to 
+date with the latest advancements in treatments worldwide.
+
+=== PAGE 19 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+19 
+ 
+Education: Prompts allow teachers to generate quizzes, assignments, lesson plans, and 
+interactive lessons tailored to their curriculum needs. Students can prompt AI tutors for 
+personalized explanations. 
+ 
+Educators can tailor-fit their course subjects based on their audience. 
+ 
+Customer Service: AI chatbots rely on prompts to understand customer questions and 
+provide relevant answers from a knowledge base. Prompts enable quicker resolution of 
+support issues. 
+ 
+ 
+An excellent prompt someone from the customer service industry might use to better their service. 
+ 
+Well-crafted prompts guide AI systems to useful, on-target outputs in all fields. Prompt 
+engineering expertise is necessary for extracting the most value from AI across the 
+business landscape.
+
+=== PAGE 20 ===
+
+Chapter 2: The Role of Data in AI Prompting 
+Explanation of training data 
+Training data is the large datasets used to teach AI models. It provides examples for the 
+model to learn from, like how students learn from textbooks and classroom lessons. 
+Training data includes text, images, audio, video, and statistics. 
+ 
+Imagine a model trained to tell you what Rick Astley will and won’t do. This is the future. 
+For a text AI like ChatGPT, the training data consists of millions of paragraphs from 
+books, websites, academic papers, and other sources. An image AI like DALL-E is 
+trained on enormous photos, illustrations, and art datasets.
+
+=== PAGE 21 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+21 
+ 
+ 
+Billions of photos of a corgi in all shapes, sizes, colors, and angles are tagged for the model to recognize 
+what a Corgi is. 
+The diversity and size of the training data impact what the AI can learn. More data 
+exposes the model to more examples to develop its capabilities. Varied, high-quality 
+data teaches the model nuanced relationships and contexts. 
+ 
+Training involves feeding the data through machine learning algorithms. The model 
+analyzes features and patterns in the data. It uses these learned relationships to 
+generate new outputs matching the patterns when users provide prompts. 
+ 
+AI models would only understand language, visuals, sounds, or other patterns with 
+training data. Careful selection and preparation of data are crucial for developing 
+capable AI systems. The models are only as innovative as their training data allows.
+
+=== PAGE 22 ===
+
+A high-level illustration of how an LLM (Large Language Model) processes User Prompt by checking its 
+Training Data to identify the key concepts and relationships of the prompt and generate an output that 
+best satisfies the given prompt. 
+ 
+Ongoing research strives to train models on ever-growing datasets covering broader 
+contexts. More data and computing power continuously expand what AI can achieve. 
+But it stems from having quality training data to build models' knowledge.
+
+=== PAGE 23 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+23 
+ 
+The Role of data quality and Diversity in AI Prompting 
+The quality and diversity of an AI model's training data significantly impact its 
+performance with prompting. Low-quality or limited data leads to poor results, while 
+broad, high-quality data enables more capable AI. 
+Data quality refers to accuracy, relevance, consistency, and lack of errors/bias. For 
+example, a text dataset with many spelling mistakes or a photo dataset with many 
+distorted images would be low-quality. High-quality data should accurately represent 
+the domain the AI will be used for. 
+ 
+ 
+“Bad apples in the batch.” AI companies must prune their datasets and consistently hone their models to 
+deliver quality outputs that are factual and free from bias. 
+Diversity involves having broadly varying examples covering different contexts. Text 
+data should include many writing styles, topics, genres, and perspectives. Image data 
+should have objects in varied settings, colors, angles, and lighting; sometimes, the 
+camera's exact lens must be mentioned to achieve the desired result.
+
+=== PAGE 24 ===
+
+With diverse data, the model learns nuanced distinctions and complex contexts. The 
+model then allows it to handle many real-world prompting situations. Non-diverse data 
+causes the model to be limited in what it can understand and generate. 
+                    
+Data diversity is illustrated by a lush, vibrant garden on the left versus a monotonous one on the right. 
+Prompts provide new situations the model must apply its training. Low-quality training 
+needs to give the model the required knowledge. Non-diverse training can only equip it 
+for familiar contexts. 
+That's why companies invest heavily in training datasets. Text corpora for models like 
+GPT-3 contain billions of high-quality, diverse webpages and books encompassing the 
+breadth of human knowledge and expression, which enables it to handle almost any 
+prompting scenario. 
+In your AI applications, ensure your training data is accurate, consistent, relevant, and 
+contains an extensive variety covering different situations the AI may face. This provides 
+the foundation for an AI that generates intelligent, valuable results for your unique 
+business prompts.
+
+=== PAGE 25 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+25 
+ 
+Real-world examples of data usage in AI prompting 
+The key to capable artificial intelligence lies in its training data. The datasets used to 
+develop AI models have an immense impact on their performance and abilities when 
+put into action. While AI may seem abstract, its origins are very concrete - rooted in vast 
+troves of real-world data. 
+Across industries, companies pour massive resources into curating and labeling quality 
+training data. Healthcare organizations assemble medical texts, images, and 
+conversations to school clinical AI. Financial institutions feed financial filings, reports, 
+and transaction logs to investment algorithms. Social networks provide years of human-
+moderated content to train moderation AI. 
+The data to train robust, applicable AI models never materializes out of thin air. It 
+requires meticulous sourcing, filtering, and preparation by data engineers before being 
+fed into brisk machine-learning algorithms. Model performance hinges on having 
+genuinely relevant training data that encompasses the needed knowledge and 
+contexts. 
+• Healthcare chatbots are trained on medical textbooks, research papers, patient 
+conversations, and electronic health records. This clinical data teach the AI 
+medical terminology, symptoms, treatments, and proper bedside manner to 
+converse with patients. 
+ 
+Youper's AI uses quick, personalized conversations to monitor and improve users' emotional health 
+through psychological techniques. Source: https://techcrunch.com/ 
+• Finance AI is trained on earnings reports, financial statements, analyst forecasts, 
+economic data, and trading transaction history. This diverse financial data 
+enables AIs to generate investment insights and trading recommendations for 
+current market conditions.
+
+=== PAGE 26 ===
+
+• E-commerce product recommendation engines are trained on customer 
+purchase history, browsing behavior, product catalogs, and inventory data. This 
+teaches the AI connections between products people buy together and their 
+evolving interests. 
+ 
+Spotify's Discover Weekly is a personalized playlist generated for each user based on their listening history. 
+Discover Weekly uses machine learning to identify songs the user will likely enjoy and then create a playlist. 
+ 
+• Social media moderation AI is trained on years of post-data from a platform, 
+human-moderated examples of policy violations, and banned content 
+categories. This helps automatically flag harmful posts for human review. 
+• AI writing assistants like Jasper and Claude are trained on thousands of 
+professional books and articles to develop an authoritative, polished writing style. 
+• Autonomous vehicle AI is trained on millions of miles of driving data in diverse 
+conditions. This teaches it to navigate real-world roads and scenarios. 
+ 
+Waze uses real-time data from its users, such as traffic conditions and speed limits, to calculate the best 
+route for each driver. AI algorithms process this data to find the fastest and most efficient route.
+
+=== PAGE 27 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+27 
+ 
+The more high-quality examples the AI has on the task it will perform, the better it gets 
+at handling new scenarios. Companies go to great lengths to develop training datasets 
+that are large, accurate, and diverse enough to meet an AI's prompting needs.
+
+=== PAGE 28 ===
+
+Chapter 3: Crafting Effective AI Prompts 
+Prompt engineering is critical to extracting beneficial results from AI. AI can process 
+natural language but relies on human guidance to produce on-target outputs. 
+Effective prompting strikes the right balance of clarity, details, and instructions to steer 
+the AI. 
+ 
+Describing the color blue to a blind person – by Adobe Firefly 
+Prompting is like explaining a concept to someone lacking context - you must mind the 
+knowledge gap. An AI has no innate senses and experiences. Prompts fill those gaps, 
+like describing colors to people who are blind. The AI needs enough specifics to paint 
+the whole picture without getting lost in superfluous details. 
+Prompting is an art every AI user must develop. Experimentation reveals which 
+instructions elicit your desired performance. The proper phrasing provides the spark to 
+ignite the AI’s potential. But ambiguity causes misfires. Honing prompts takes practice 
+but unlocks AI capabilities. 
+This chapter provides tried and tested techniques to communicate prompts precisely. 
+You’ll gain skills to distill instructions to concise essentials and selectively add details. 
+Learn structural approaches for framing prompts. With prompting mastery, guide AIs 
+reliably to valuable results.
+
+=== PAGE 29 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+29 
+ 
+ 
+ 
+Techniques for generating effective prompts. 
+Writing effective prompts takes skill and practice. Here are vital techniques to master: 
+• Use simple, precise wording - Don't use jargon or complex sentences. State 
+requests directly using plain language. 
+ 
+GPT 4’s interpretation of the prompt “Write a children’s story about a puppy.” 
+• Establish context - Provide background details on the situation and goal so the AI 
+understands.
+
+=== PAGE 30 ===
+
+You can assign a “role” to ai chatbots to best understand your prompt. Here, google bard creates 
+a 30-second video ad for a new app. 
+ 
+• Be specific - Give details on precisely what you want the AI to generate. Vague 
+prompts confuse. 
+ 
+Practice brevity. Antrophic’s AI Model Chatbot (Claude) can understand our prompt and deliver 
+the results we want 
+• List requirements - Specify parameters like length, format, style, tone, or other 
+needs. 
+ 
+In this prompt, we set what we want out of the chatbot. We set how long and what the general 
+feel of that script is going to be 
+• Give examples - Provide samples of ideal outputs or components to guide the 
+AI. 
+ 
+You can feed examples to the chatbot by using “, “( ), ‘ ‘ or even:  AI models can understand that 
+the examples come right after the prompt. Some are even able to read links to a video or website 
+to base the output from
+
+=== PAGE 31 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+31 
+ 
+ 
+• Structure prompts - Organize prompts into sections like background, instructions, 
+and parameters. 
+ 
+Prompts are flexible, and you can set them in a way similar to this to manually set every aspect of the 
+output 
+• Direct persona - If you want a particular voice or style, specify the persona the AI 
+should adopt. 
+ 
+Asking the chatbot to reply ‘as-if’ is also a viable strategy to get the output closer to what you 
+want 
+• Check to understand - Ask the AI to rephrase your prompt to validate 
+comprehension before generating. 
+ 
+Like humans, you can ask the AI model if it needs follow-up questions to understand what you want 
+it to do properly. This is a good way to check if your prompt needs to be improvede improved.
+
+=== PAGE 32 ===
+
+• Revise iteratively - If results are off, rephrase and add details to better direct the 
+AI. 
+ 
+Original prompt: “Write like Shakespeare.” 
+ 
+Revised prompt: “You are William Shakespeare. Reply to my last message in a Shakespearean style 
+using old English." Remember that it’s a chatbot and can remember what you prompted earlier. 
+Also, a big plus, we can never complain no matter how many times we try! 
+Following structured prompting approaches gives the AI maximum clarity on the task. 
+Thinking through what information the AI needs to succeed leads to prompts optimized 
+for your goals. With practice, you'll learn how to prompt effectively.
+
+=== PAGE 33 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+33 
+ 
+Importance of context and clarity in prompts 
+Providing adequate context and clear instructions is crucial for AI to handle prompts 
+properly. With sufficient context and details, AI systems can grasp what you want and 
+why. Clear, explicit prompts avoid ambiguities that lead to irrelevant or nonsensical 
+results. 
+Context means providing background information to set the scene and establish intent. 
+For example, prompts should define the target audience, intended tone, required 
+length/format, and the purpose or goal of the generated output. This contextual 
+framing helps direct the AI appropriately. 
+ 
+Prompt: Context: You are writing a biography showcasing Marie Curie's scientific achievements and their 
+impact on the world. The biography should inspire young women interested in STEM. Use an enthusiastic, 
+conversational tone that is easy to understand. 
+Instructions should unambiguously state the exact task or content required in simple 
+terms. The vague, abstract language leaves too much open to interpretation. Prompts 
+need to be concrete and specific about what the AI must deliver. 
+ 
+Prompt: Instructions: Please write a short biography on Marie Curie in the style of the sample passages 
+below: 
+Examples help paint a picture of the ideal output. Including samples provides a north 
+star for the AI to follow. You can also list "don’t-want" examples of what to avoid. This 
+further honed context keeps the AI on track.
+
+=== PAGE 34 ===
+
+Multiple Samples help AI understand the context to produce better results. 
+ 
+Don’t Wants are an example of negative prompting. We don’t want to see these undesirables on the 
+generated output. Specifying this further narrow what the AI should and shouldn’t include.  
+ 
+By training your prompts constantly to establish context and give unambiguous 
+instructions, you equip the AI with everything needed to generate valuable results. 
+Remove ambiguities that undermine prompts and diminish the power of AI.
+
+=== PAGE 35 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+35 
+ 
+Chapter 4: Real-Life Business Applications of AI 
+Prompting 
+AI prompting in customer service: Chatbots. 
+AI-powered chatbots are becoming a popular customer service channel due to their 
+availability 24/7 and ability to resolve common issues instantly. Well-designed prompts 
+enable chatbots to handle a wide range of customer needs. 
+ 
+Prompts can train a chatbot to: 
+ 
+• Ask clarifying questions to understand the customer's goal 
+• Search knowledge bases for answers to frequently asked questions 
+• Suggest solutions for problems like account troubleshooting 
+• Escalate complex issues to human agents 
+• Provide account status and order updates 
+• Send reminders and notifications 
+• Schedule calls with sales or support reps 
+• Process transactions like refunds or cancellations 
+ 
+ 
+ 
+Through its conversational interface, HR automation can assist employees and HR staff with a wide variety 
+of company policies and functions – IBM Watson Assistant
+
+=== PAGE 36 ===
+
+Effective prompts outline the range of possible customer intents and provide examples 
+of ideal chatbot responses. The AI learns to have natural, helpful conversations guided 
+by the prompts. 
+ 
+Companies like HubSpot and Drift use prompts to develop chatbots handling 30-50% of 
+customer inquiries without human involvement. Prompting also powers self-service 
+support sites and messaging apps that offload calls from overwhelmed agents. 
+ 
+ 
+ 
+Because chatbots can simulate human conversation, IBM Watson Assistant excels at providing fast and 
+always pleasant service. 
+ 
+Well-designed AI-assisted service cuts costs while making customers happier through 
+quick, seamless issue resolution.
+
+=== PAGE 37 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+37 
+ 
+ 
+AI prompting in content creation: blogging, social media, 
+advertising. 
+When guided by effective prompts, AI tools can rapidly generate all marketing and 
+advertising content. 
+For social media, prompts help AI craft hundreds of posts customized for each 
+platform's style - friendly for Facebook, inspirational for Instagram, and promotional on 
+Twitter. Tools like Phrase and Squibs use prompting to produce on-brand social posts in 
+seconds. 
+ 
+One of many youtube videos discussing the potential of AI to assist in content creation for various social 
+media outlets – Source: Youtube 
+Blog writing prompts specify topics, target keywords, tone, length, and other 
+parameters to automate drafts. Rev.io's AI can draft a 2,000-word blog post from a one-
+sentence prompt. Tools relieve writers from drudgery while maintaining quality. 
+Prompts enable AI to generate countless on-strategy ad headlines, body copy, and 
+display ads. Agencies use AI to produce high volumes of focused ads tailored to 
+products, offers, and audiences. Text-to-image generators like DALL-E even create 
+visual ads from prompts. 
+ 
+Prompt: Draft prompts designed to use for social media content creation. Note: AI models can discern 
+what you mean even with grammatically incorrect prompts
+
+=== PAGE 38 ===
+
+A weeks’ worth of content, all from a single prompt (above) 
+Email prompts optimize subject lines for open rates and write targeted newsletter 
+content matched to subscriber segments. AI-generated landing pages, case studies, 
+whitepapers, and other assets save production time. 
+The key is training AI with company data and examples of successful creative to learn 
+branding and what engages your audience. Prompting then scales that knowledge 
+across campaigns.
+
+=== PAGE 39 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+39 
+ 
+AI prompting in data analysis: market trends, customer behavior. 
+Traditionally, marketers had to manually track and analyze vast amounts of data to 
+uncover meaningful insights. This could involve going through massive datasets in 
+spreadsheets to identify trends in engagement, sentiment, conversions, and more. The 
+process could have been more laborious and limited by human capacity. 
+ 
+"Venturing the Data Jungle: The Marketer's Expedition. Immersed in the impenetrable wilderness of data, 
+the marketer, equipped with traditional analysis tools, embarks on the strenuous journey of identifying 
+patterns and trends. This encapsulates the labor-intensive and human capacity-bounded nature of 
+traditional marketing analysis." Image By Adobe Firefly 
+AI-powered analytics tools are transforming this work through the use of prompts. In just 
+a sentence or two, analysts can provide prompts requesting complex data processing 
+that would take hours manually. 
+For example, a prompt could ask the AI to analyze the last six months of social media 
+data and highlight any significant changes in brand sentiment. The AI can rapidly 
+analyze millions of posts, comments, shares, etc., and detect subtle shifts in how 
+positively or negatively people are talking about the brand. 
+The AI can also identify trends like rising interest in particular products, a spike in the use 
+of branded hashtags, or growth in followers among a key demographic. These are 
+trends the human eye would likely miss scanning the raw data.
+
+=== PAGE 40 ===
+
+The AI provides a report with interactive visualizations of the key patterns and trends in 
+the social data based on the analytical prompt. This enables marketers to spot 
+opportunities to capitalize on quickly and areas needing improvement. 
+ 
+While not exactly prompting, there are a lot of emerging AI tools that aim to assist in the analysis of large 
+data. Superluminal is one of them, boasting to supercharge your workflow and having a personal data 
+analyst.  
+ 
+Prompting reduces a multi-day manual reporting process to minutes while revealing 
+more impactful insights. AI automation amplifies and augments human data analytical 
+capabilities exponentially. 
+For marketing analytics, prompts help extract trends and patterns:  
+"Analyze this social media data and highlight the top trends and changes in consumer 
+sentiment about our brand over the past year." 
+"Compare the demographics and purchase behavior of our loyalty program members 
+versus non-members. Present key differences in a chart."
+
+=== PAGE 41 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+41 
+ 
+Prompts can also request predictions to guide strategy: 
+"Based on this customer usage data, create a model projecting how many will churn in 
+the next six months if prices increase 5%." 
+"Forecast expected holiday sales by product category based on the last five years of 
+purchasing trends." 
+For competitive intelligence, prompts can mine public data: 
+"Search recent earnings calls and news articles for mentions of our top 3 competitors. 
+Highlight strategies they are investing in." 
+"Compare the features of our product versus Company X and Company Y. List our 
+advantages and disadvantages."
+
+=== PAGE 42 ===
+
+Chapter 5: Case Studies 
+In the previous chapters, we explored core practices for crafting optimized prompts 
+and leveraging AI for widespread applications from content creation to data analysis. 
+Now we'll see how these techniques have been applied through real-world examples. 
+Case studies reveal how leading companies implement prompting that unlocks AI's 
+potential while aligning it with their business goals. By examining the prompts, strategies, 
+and results achieved in diverse scenarios, we gain actionable insights to inform our AI 
+deployments. 
+We'll learn how industries, from marketing to medicine, tailor prompting to enhance 
+workflows and deliver actual business value. The case studies act as prompts, providing 
+models of effective practice we can adopt for success. 
+While the applications span many domains, common patterns emerge around careful 
+objective setting, prompt optimization based on continuous tests, and humans 
+Remaining in the loop to guide the AI. Mastering the balance of human creativity and 
+machine-scale productivity underpins impactful applications. 
+These inspirational examples give us the prompts and insights to architect 
+transformative solutions tailored to our unique objectives. Let's uncover prompting in 
+practice and prepare to imagine what's possible for our organization. The future starts 
+with the insights gleaned from those pioneering the present possibilities.
+
+=== PAGE 43 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+43 
+ 
+Detailed examples of successful AI prompting in various businesses 
+ 
+Financial Services 
+A robo-advisor company uses prompts to have AI analyze customer data and 
+generate personalized investment plans. Prompts include risk tolerance, time horizons, 
+and financial goals. The AI delivers tailored portfolios and projections. This automated, 
+prompt-driven approach scaled advisory services 10x. 
+ 
+Example Prompt 
+Context: You are an AI-powered robo-advisor assisting clients with investment 
+recommendations. 
+Instructions: Use the following customer data to generate a personalized investment 
+plan optimized to meet their goals: 
+• Name: John Smith 
+• Age: 42 
+• Annual income: $150,000 
+• Risk tolerance: Moderate 
+• Investment goal: Retire comfortably at 65 
+• Current retirement savings: $50,000 
+Create a detailed portfolio allocation recommendation across stocks, bonds, real 
+estate, and cash. Forecast expected long-term returns based on historical market 
+performance. Generate Illustrative projections of how this portfolio would grow John's 
+wealth by retirement age. 
+ 
+The prompt provides all the key parameters like risk level and goals that the AI needs to 
+tailor its analysis. Prompting the AI this way allowed it to automate personalized 
+recommendations that previously required one-on-one financial advisors.
+
+=== PAGE 44 ===
+
+Healthcare 
+A medical startup prompts an AI assistant to suggest diagnoses based on symptom 
+descriptions. Doctors provide detailed symptoms, tests, and patient history to receive 
+differential diagnoses and evidence. The AI even highlights missing information needed 
+to refine its assessment. Prompting reduced misdiagnoses by 15%. 
+ 
+Example Prompt 
+Context: You are an AI assistant created by MedTech to aid doctors with differential 
+diagnoses. Your suggestions should be backed up by medical evidence and indicate 
+when more information is needed. 
+Instructions: Generate possible diagnoses for a 63-year-old female patient with 
+intermittent abdominal pain, nausea, fatigue, and 5lb weight loss over two months. 
+Relevant history included appendectomy ten years ago. Lab tests show elevated liver 
+enzymes. Recommend additional diagnostic steps required to narrow down the 
+diagnosis. Provide likelihood percentages for your top 3 differential diagnoses, clinical 
+evidence, and relevant medical studies. 
+This prompt provides the AI with the patient’s symptoms, history, test results, and other 
+clinical contexts needed to assess the case. It requests specific outputs like 
+recommended tests, percentages for likely diagnoses, and citations for clinical 
+evidence. Prompting the AI with relevant medical details and ideal response 
+components enables it to provide useful diagnostic support.
+
+=== PAGE 45 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+45 
+ 
+E-Commerce 
+An online retailer prompts an AI to generate a product listing copy personalized to 
+each item. Prompts include product features, keywords, unique selling propositions, and 
+tone. The AI-generated listings boosted the click-through rate by 5% versus human-
+written listings. 
+ 
+ 
+Example Prompt 
+Context: You are a copywriter for an outdoor equipment company writing a product 
+description page for a new tent. The tent sleeps four people and has an innovative 
+pole structure that makes setup easy. 
+Instructions: Write an engaging 150-200 word product description for the FastPitch 4-
+person tent focused on the key features and benefits. Highlight the following: 
+• Fast 60-second popup thanks to pre-attached hub-and-pole system 
+• Spacious interior with room for four campers and gear 
+• High-visibility orange rainfly for safety and weather protection 
+• Mesh roof vents and windows for airflow and stargazing 
+• Packed weight under 6 lbs for easy carrying 
+Use keywords like "fast-pitch,” "easy setup,” "4-person", and "weatherproof.” Emphasize 
+the unique selling proposition of effortless setup. Use an enthusiastic tone aimed at 
+families and adventurers. 
+This gives the AI all the product details, keywords, and messaging guidance needed to 
+generate an on-brand, compelling product description. The AI can customize this for 
+each product versus relying on human copywriters.
+
+=== PAGE 46 ===
+
+Lessons learned from these case studies 
+The examples of real-world AI prompting highlight several best practices we can apply 
+to craft successful deployments. While the applications spanned industries and use 
+cases, common patterns, and lessons emerged that inform prompting excellence. 
+First, we saw the importance of strategic objective-setting when leveraging AI. The 
+companies identified specific bottlenecks where AI augmentation provides significant 
+benefits over the status quo. Clear objectives allow prompts to be tailored for maximum 
+relevance. 
+We also saw the power of continuous prompt tuning and testing. Every initial prompt 
+needs to be revised. The companies continually refined prompts based on AI 
+performance and evolved them in sync with business needs. Adaptive prompting is 
+critical to optimization. 
+Additionally, keeping humans in the loop proved vital. Humans train the AI with new 
+data, validate its outputs, and handle exceptions beyond its abilities. AI alone needs 
+discernment; partnering human and AI intelligence ensures quality and accountability. 
+Prompting is not a set-and-forget automation. We must dedicate resources to 
+thoughtful and agile implementation to harness its full potential. The rewards of 
+enhanced productivity and competitiveness justify the investment. 
+We can make strategic decisions to capture similar value by learning from those 
+pioneering prompting's potential. Thoughtfully applying these lessons paves the way to 
+AI integration done right.
+
+=== PAGE 47 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+47 
+ 
+Chapter 6: Overcoming Challenges in AI Prompting 
+In the previous chapters, we explored best practices for crafting effective prompts. We 
+saw examples of AI prompting delivering tremendous business value. However, 
+achieving AI's full potential involves overcoming common challenges. 
+AI has limitations in what it can generate, and prompts do not always elicit appropriate 
+responses on the first try. Ethical risks around data use, bias, and misinformation also 
+require diligence. 
+ 
+IBM’s views on the ethical use and approach to A. I source: https://www.ibm.com/topics/ai-ethics 
+This chapter guides addressing these challenges. We'll examine the constraints of 
+today's AI and prompt tuning techniques to work around them. You'll learn processes 
+for rigorous data privacy and ethics reviews when deploying AI. 
+With new capabilities come new responsibilities. We can mitigate risks and concerns by 
+understanding the limitations of current AI systems and establishing principled data 
+practices.
+
+=== PAGE 48 ===
+
+IBM’s five focus areas on guiding responsible adoption of AI technologies – Source: 
+https://www.ibm.com/topics/ai-ethics 
+We are effectively prompting AI demands technical skills, wisdom, and ethics. We must 
+keep our moral compass aligned as AI capabilities advance. With thoughtful oversight 
+and governance, AI can transform organizations for the better. 
+This chapter equips you with strategies for achieving AI's promise while avoiding its 
+perils. Let's uncover best practices that blend cutting-edge technology with timeless 
+human values - a combination vital to AI done right.
+
+=== PAGE 49 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+49 
+ 
+Understanding the limitations of AI responses 
+While AI has made immense progress, current systems still have significant limitations in 
+what they can generate from prompts: 
+• Factual Accuracy - AI often fabricates false information or repeats outdated 
+data, requiring human verification of outputs. 
+ 
+Only some things AI creates are factual; it is prone to bad data and biases. As creators/humans, 
+we must ensure everything is factual and unbiased. Image by Adobe Firefly 
+• Reasoning - Logical reasoning in complex contexts must be more reliable than 
+human intelligence. 
+• Judgment - AI lacks human-level discernment to make subjective calls weighing 
+multiple factors. 
+• Common Sense - AI struggles with simple real-world knowledge we take for 
+granted.
+
+=== PAGE 50 ===
+
+• Generalization - Applying learning across different tasks and contexts is difficult 
+for AI. Knowledge is compartmentalized. 
+ 
+Compartmentalized Wisdom: The AI's Maze of Knowledge. The AI, represented as a vast library, 
+hoards knowledge in separate rooms, each signifying a distinct context or task. Yet, the challenge 
+lies in its inability to freely exchange books between rooms freely, metaphorically capturing AI's 
+struggle with applying learning across different tasks and contexts. – Image by Stable Diffusion 
+• Creativity - Truly groundbreaking art, ideas, and innovations remain exclusively 
+human talents.
+
+=== PAGE 51 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+51 
+ 
+• Ethics - AI has no innate morals or ability to make ethical choices. Ethical risks 
+require human oversight. 
+ 
+Ethics at Crossroads: The AI's Moral Dilemma. At the intersection of ethical decisions, AI, devoid of 
+a moral compass, fumbles. The human figure lends this compass, underlining the essential human 
+oversight needed for navigating the ethical complexities of AI's universe. – Image by Adobe Firefly 
+ 
+• Explainability - The reasoning behind AI responses is mainly opaque and difficult 
+to audit. 
+ 
+While impressive, today's AI is brittle and limited outside narrow applications. We must 
+set realistic expectations around its current abilities. Prompting is not magic - it cannot 
+instantly imbue machines with human cognition. But understanding limitations allows us 
+to work around them.
+
+=== PAGE 52 ===
+
+AI on Stage: A Spectacular Yet Brittle Performance. While AI dazzles under the spotlight, demonstrating its 
+prowess in narrow applications, the shadows cast on the stage reveal hurdles and limitations that it 
+struggles to overcome. Amid the audience, the discerning human observer tempers awe with realism, 
+acknowledging that AI is not magic, and finds ways to navigate its limitations. – Image by Adobe Firefly
+
+=== PAGE 53 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+53 
+ 
+Strategies for refining prompts to achieve desired results 
+ 
+Provide more context - Expand on background, goals, audience, and 
+constraints. 
+Original: Write a blog post about ChatGPT. 
+Refined: You are a tech writer explaining ChatGPT pros and cons to a non-technical 
+audience. 
+ 
+Increase specificity - Add details on content, length, format, and style. 
+Original: Summarize this article.  
+Refined: Write a 2-3 sentence article summary in APA citation format. 
+ 
+Change perspectives - Rewrite from a different viewpoint or persona. 
+Original: Critique this recipe.  
+Refined: As a professional chef, provide constructive feedback on this recipe. 
+ 
+Alter examples - Swap samples for better matches to your needs. 
+Original: Write a folk song like this example. [Pop song example]  
+Refined: Write a folk song like this example. [Folk song example]
+
+=== PAGE 54 ===
+
+Emphasize priorities - Stress must-have aspects and those to avoid. 
+Original: Write a bedtime story.  
+Refined: Write a calming, comforting 3-page bedtime story for a 5-year-old. Avoid 
+scary themes. 
+ 
+Solicit feedback - Ask AI for a critique of the prompt to improve itself. 
+"How could I rephrase my last prompt to produce better results?" 
+ 
+ 
+Getting results takes patience. Craft prompts focused on your goals, then optimize 
+iteratively based on outputs. 
+ 
+ 
+"Mastering the Art of Prompting: An Exercise in Patience and Precision. Like a careful sculptor, the user 
+chisels away at a block of stone - shaping, refining, and optimizing the prompts iteratively to reveal the 
+desired outcome gradually. Each preceding version stands testament to the iterative process, 
+underscoring the patience and focus required in crafting effective prompts." Image by Adobe Firefly
+
+=== PAGE 55 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+55 
+ 
+Navigating ethical considerations and data privacy issues 
+AI prompting introduces risks around ethics, bias, and data use that organizations must 
+proactively address: 
+• Establish oversight - Conduct ethics committees to create AI-use policies and 
+review issues regularly. 
+• Perform bias audits - Scrutinize datasets and outputs for harmful biases and blind 
+spots. Maintain diversity. 
+• Enable transparency - Document AI use cases and data sources. Disclose AI 
+involvement to users. 
+• Get consent - Inform users of data collection purposes and provide opt-out. 
+Anonymize data where possible. 
+• Limit access - Control and encrypt sensitive data. Restrict AI and human access 
+on a need-to-know basis. 
+• Follow security best practices - Audit user credentials, manage API keys, patch 
+systems, and watch for threats. 
+• Consider downstream uses - Weigh potential misuse of applications by bad 
+actors. 
+• Maintain accountability - Keep humans responsible for AI systems and 
+empowered to override incorrect AI decisions. 
+The same precautions taken to protect human data also apply to AI. Proactive policies, 
+security controls, and ethical oversight are crucial to earning public trust and upholding 
+values. Privacy and ethics must remain priorities, not afterthoughts. 
+For more information regarding Ethics in AI, please visit: https://www.ibm.com/topics/ai-
+ethics
+
+=== PAGE 56 ===
+
+Chapter 7: Future Trends in AI Prompting 
+The rapid evolution of AI prompting capabilities makes predicting the future 
+challenging. However, specific trends provide glimpses of prompting applications on 
+the horizon. 
+In this chapter, we will explore emerging technologies expanding on what AI can 
+generate and how it is trained. These innovations will enable new prompting possibilities 
+while increasing AI productivity and independence. 
+We will also consider potential impacts as prompting applications become ubiquitous 
+across enterprises. While future risks exist, proper prompting promises a new era of 
+amplified human potential. 
+Lastly, we will emphasize the importance of continuously learning as AI progresses. The 
+field advances swiftly - today's novelties become tomorrow's norms. By frequently 
+retooling our prompting skills, we can ride innovation waves rather than be 
+overwhelmed. 
+The wise build the future on foundations laid today. Our prompts guide AI now and seed 
+growth for prompting's full possibilities to bloom. This vision should energize and inspire 
+our journey ahead.
+
+=== PAGE 57 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+57 
+ 
+Predictions for the future of AI prompting in business 
+• More capable AI models - Larger, more advanced AI architectures will handle 
+complex prompts across disciplines. Multimodal AI can interpret images, video, 
+speech, and more. 
+• Industry-specific AI - Pre-trained models with specialized knowledge will direct 
+prompts in law, medicine, and engineering. Less training is needed. 
+• Prompting in augmented reality - AR glasses and goggles will enable prompting 
+AI assistants to overlay digital info onto real-world environments. 
+• Prompting physical robots - Besides info tasks, future prompts will direct robot 
+actions collaborating alongside humans physically. 
+• Two-way prompting - Rather than passively await prompts, AI may proactively 
+ask questions of users to clarify needs and refine results. 
+ 
+The prompt above turns, in this example, Chat-GPT into a prompt creator, iteratively asking 
+questions about what you want assistance with until it feels it has all the necessary information to 
+craft the perfect prompt to cater to your requirements. 
+ 
+• Tighter human-AI integration - Techniques like neural interfaces and AI-human 
+telepathy may someday enable prompting at the speed of thought. 
+• Autonomous prompting - AI may learn to craft its prompts or adapt given 
+prompts to better achieve user goals with less oversight.
+
+=== PAGE 58 ===
+
+• More accessible prompting - Advances like speech and no-code GUIs 
+democratize prompting powers to non-technical users. 
+The path forward promises exponentially smarter AI partners enhancing every facet of 
+the business. But technology is only half the equation - realizing its potential hinges on 
+our creativity in prompting applications.
+
+=== PAGE 59 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+59 
+ 
+Emerging technologies and their potential impact 
+• Multimodal AI - Models that process images, video, audio, speech, and text 
+allow prompting with diverse media for richer applications. This expands the 
+creative possibilities. 
+• Transfer learning - Building on knowledge from pre-trained models cuts the data 
+needed to tailor AI for specific tasks. This enables more organizations to 
+implement industry-focused AI. 
+• Low-code ML platforms - Tools like Azure ML Studio make training AI more 
+accessible to non-experts. Prompting applications can spread across 
+organizations. 
+• Edge computing - Running AI where data is generated (on devices, not the 
+cloud) reduces latency while raising privacy. This expands prompting 
+applications. 
+• Neural interfaces - Technology allowing mind/computer interaction may one 
+day enable prompting by thinking prompts. It would maximize human-AI 
+bandwidth. 
+• Quantum computing - The exponential increase in processing power could allow 
+AI to handle incredibly sophisticated prompts in seconds. 
+• Nanotechnology - Microscopic AI embedded throughout environments could 
+lead to ubiquitous prompting access. 
+• 5G/6G networks - Higher speeds and lower latency support demanding 
+applications using prompting across devices and cloud platforms. 
+Advances on both the human and machine sides will shape prompting's future 
+potential. But emerging tech without imagination risks wasted potential. Our creativity 
+alongside technology drives progress.
+
+=== PAGE 60 ===
+
+Painting the Future of Prompting: A Fusion of Human and Machine. With the shared orb of potential 
+between them, humans and AI hold the promise of future advancements in prompting. The human's 
+paintbrush, adding splashes of creativity, underlines the necessity of imagination to prevent wasted 
+potential and propel technological progress. Image by StableDiffusion
+
+=== PAGE 61 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+61 
+ 
+Encouragement for continued learning and exploration 
+• Stay curious - Approach new prompting capabilities with an open mindset to 
+uncover novel applications. Avoid rigid thinking. 
+• Keep current - Follow AI news and breakthroughs. What's cutting edge today is 
+mainstream tomorrow. Renew skills accordingly. 
+• Try new techniques - Experiment with different prompt styles and formats. Adapt 
+best practices from diverse fields. 
+• Support emerging voices - Welcome new perspectives on prompting from 
+unusual sources. Innovation breeds diversity. 
+• Collaborate across teams - Prompting expertise should connect technical and 
+business domains. Build bridges. 
+• Maintain ethics - Regularly reassess risks and recalibrate safeguards to protect 
+users as applications advance. 
+• Measure performance - Rigorously benchmark outputs and business impact over 
+time. Quantify improvements. 
+• Celebrate progress - Recognize teams taking prompting applications to the next 
+level. Foster a culture of positive growth. 
+The only constant is change. Maintaining a learning mindset ensures we ride each 
+wave of progress rather than being swept away. With knowledge, ethics, and 
+imagination as our guides, the future looks bright. 
+ 
+"Surfing the Waves of Change: Knowledge, Ethics, and Imagination as Guides. Riding atop the ever-
+changing tide of progress, the figure embraces a learning mindset guided by the surfboard adorned with 
+symbols of knowledge, ethics, and imagination. Looking ahead towards the dawning horizon, the future 
+holds promise and light." Image by Adobe Firefly
+
+=== PAGE 62 ===
+
+Conclusion 
+Recap of key points covered in the eBook 
+• AI prompting allows anyone to guide AI systems to useful outputs using natural 
+language instructions. 
+• Well-designed prompts provide the clarity, details, and examples AI needs to 
+generate relevant results. 
+• Prompt engineering tactics like establishing context, specifying requirements, 
+and structuring prompts improve results. 
+• Real-world examples show prompting transforming workflows in areas from 
+customer service to content creation. 
+• Prompting strategies require continuously refining prompts based on 
+performance data and business needs. 
+• Addressing AI limitations, potential biases, and ethical risks is vital for safe 
+prompting practices. 
+• Emerging technologies will expand prompting applications and capabilities but 
+require responsible oversight. 
+• Maintaining an adaptable mindset and promptly building skills prepares us to 
+harness new AI advances through prompting. 
+• With creativity and diligence, organizations can implement prompting to 
+enhance productivity, decision-making, and competitiveness.
+
+=== PAGE 63 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+63 
+ 
+The importance of AI prompting in the modern business landscape 
+AI prompting is becoming crucial for business success as AI proliferation accelerates. 
+Prompting unlocks productivity, efficiencies, and insights unattainable through human 
+efforts alone. 
+AI is transforming from a niche tool to a ubiquitous assistant - prompting allows non-
+technical users to unleash their potential. Prompting skill differentiates organizations. 
+Leading companies prompt AI to optimize workflows, engage customers, create 
+content, and drive decisions. Falling behind in prompting mastery imperils 
+competitiveness. 
+ 
+Amazon uses AI to optimize its supply chain, recommend products to customers, and personalize the 
+shopping experience. For example, Amazon's AI-powered fulfillment centers use machine learning to 
+predict demand and optimize the order-picking process. This has helped Amazon to reduce its fulfillment 
+costs and improve its delivery speeds. – AWS Cloud: Run Semiconductor workflows for aws 
+Prompt-powered assistants augment human abilities. Workers focus on creativity and 
+judgment while AI automates routine tasks at scale. New human-AI collaboration 
+models emerge. 
+Prompting also prepares businesses for an AI-native future. Building prompting 
+capabilities today allows organizations to adapt as new technologies arrive readily.
+
+=== PAGE 64 ===
+
+Already competitive pressures demand prompting skills permeate across enterprises. 
+Soon prompting proficiency will be mandatory baseline business knowledge. 
+ 
+Banking on AI: Automating Simplicity, Enhancing Complexity. The AI, efficiently handling multiple customer 
+queries, lightens the load of routine tasks. This liberates the human customer service representatives to 
+delve into more intricate problems, underlining the balance and partnership between AI automation and 
+human expertise in the banking industry. – Image by Adobe Firefly 
+The time to embrace prompting is now. We are applying prompting thoughtfully and 
+ethically to channel AI’s potential for positive disruption. With prompting, seize 
+opportunities of the dawning AI age.
+
+=== PAGE 65 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+65 
+ 
+Final thoughts and encouragement for practical application of 
+learned concepts 
+The AI-prompting revolution is here. These powerful techniques promise immense 
+opportunities to elevate business and society if applied judiciously. With prompting 
+proficiency, seize your AI advantage. 
+This new capability in our toolbox expands, not limits, possibilities. Prompting is the 
+paintbrush, AI the color - let your imagination soar. Dream big, start small, and learn 
+fast. 
+Combining human creativity and AI productivity creates something more significant 
+than the sum of its parts. Let partnership, not fear, guide integration. 
+Progress entails both promise and peril. Anchor technology in ethics, and it lifts 
+humanity. Lead prompting with purpose. 
+ 
+"Unlocking AI's Potential: The Journey Towards the Future. Holding the glowing key of knowledge, the figure 
+stands ready to overcome AI's challenges and harness its potential. The future, a vast horizon, beckons, 
+and our protagonist, armed with wisdom, strides confidently towards it, promising a better tomorrow." 
+You now hold the keys to unlocking AI’s potential while avoiding its pitfalls. Wield this 
+knowledge as a force for good and change. The future awaits - meet it head-on.
+
+=== PAGE 66 ===
+
+My Personal Prompt ‘Cheat Sheet’ 
+ 
+Verbs  
+These operative words, commonly called verbs, serve as the primary directive for 
+Artificial Intelligence. They subtly shape the AI's approach, steering it towards actions 
+and dictating the information it should provide. When you incorporate these verbs into 
+prompts, they become commands, allowing users to specifically assign tasks to the AI, 
+such as dissecting data, elucidating concepts, or sparking a flurry of creative ideas. 
+Using a suitable verb in a prompt enhances the AI's comprehension of user requests. 
+This, in turn, paves the way for responses that are both accurate and directly related to 
+the user's inquiry. The judicious selection and employment of verbs in a prompt can 
+significantly amplify the precision and relevance of the AI's output, resulting in responses 
+tailored perfectly to the user's needs. 
+Analyze Explain 
+Answer Generate 
+Argue Please give me 
+Brainstorm Illustrate 
+Change Include 
+Clarify Infer 
+Combine List 
+Come up Make 
+Compare Narrow your focus 
+Compile Outline
+
+=== PAGE 67 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+67 
+ 
+Conclude Predict 
+Craft Produce 
+Create Propose 
+Criticize Provide 
+Critique Recommend 
+Debug Rephrase 
+Defend Reword 
+Define Rewrite 
+Describe Suggest 
+Develop Sum up 
+Differentiate Summarize 
+Discuss Translate 
+Expand Write 
+Elaborate Interpret 
+Evaluate Justify 
+Highlight Manipulate
+
+=== PAGE 68 ===
+
+Identify Prioritize 
+Infer Quantity 
+Justify Refine 
+Paraphrase Simulate 
+Qualify Validate 
+Rate Verify 
+Speculate Widen 
+Synthesize Extrapolate 
+Theorize Formulate 
+ 
+Example of an AI prompt that uses a verb: 
+Prompt: "Formulate a comprehensive list of France's top ten must-visit tourist spots, 
+emphasizing their historical significance and unique attractions." 
+This prompt instructs the AI to generate a list (an actionable task) while providing 
+specific details on what information to include (historical significance, unique 
+attractions). Additionally, the tone is direct and informational, suitable for an audience 
+interested in travel and history.
+
+=== PAGE 69 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+69 
+ 
+Tone 
+Crafting AI prompts isn't just about direction; it's about striking the right tone. Your 
+brand's personality shines through your tone, significantly influencing audience 
+perception. Choose a consistent, apt tone for your AI prompts to boost your brand, 
+build audience trust, and foster a compelling user experience. Brevity is the soul of wit, 
+after all. 
+Approachable Excited Playful 
+Assertive Formal Poetic 
+Bold Friendly Positive 
+Candid Funny Powerful 
+Caring Gentle Professional 
+Casual Helpful Quirky 
+Cheerful Hopeful Reassuring 
+Clear Humorous Reflective 
+Commanding Informal Respectful 
+Comprehensive Informative Romantic 
+Confident Inspirational Sarcastic 
+Conversational Inspiring Scientific 
+Curious Lively Serious 
+Detailed Melancholic Technical
+
+=== PAGE 70 ===
+
+Educational Motivational Thought-provoking 
+Eloquent Negative Thoughtful 
+Emotional Neutral Uplifting 
+Empathetic Nostalgic Urgent 
+Empowering Offbeat Vibrant 
+Encouraging Passionate Visionary 
+Engaging Personal Witty 
+Enthusiastic Persuasive Zealous 
+Diplomatic Mysterious Sincere 
+Direct Optimistic Sophisticated 
+Dramatic Pessimistic Sympathetic 
+Dry Realistic Unassuming 
+Earnest Relaxed Whimsical 
+ 
+Example of an AI prompt that uses a tone: 
+Prompt: "Hello, AI! Could you please spin a delightful short story about a friendly alien 
+who loves Earth’s ice cream?" 
+This prompt instructs the AI to generate a story; the tone is lighthearted and engaging. It 
+encourages a playful, imaginative output suitable for a broad audience, especially 
+those who enjoy whimsical fiction.
+
+=== PAGE 71 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+71 
+ 
+Roles/Persona 
+Defining roles is a powerful technique for guiding AI systems to generate outputs 
+tailored to different perspectives. Assigning a specific persona allows prompts to shape 
+content matching that viewpoint. 
+For example, prompts can direct the AI to write as a subject matter expert, a customer, 
+a journalist, or other defined roles. This technique frames responses with the appropriate 
+voice, style, and knowledge base for the role. 
+Roles become the AI's identity framing its entire response. An AI assuming a doctor role 
+provides different information than an investor role, even when given the same initial 
+prompt. 
+Roles also help humans contextualize the AI's output - they set expectations on the 
+response by defining the assumed identity. This technique builds trust by clarifying the 
+AI's framing. 
+With practice, prompt writers learn to leverage roles to steer AI content precisely 
+aligned to goals. The AI assumes the assigned role of delivering outputs personalized 
+from diverse perspectives. Defining roles is, therefore, a critical prompt engineering skill. 
+Role / Persona Use Case 
+Customer Service 
+Representative 
+Problem-solving, multitasking, language fluency, 
+empathy (to a limited extent) 
+Content Writer Creativity, language proficiency, research skills 
+Technical Writer Understanding complex topics, language 
+proficiency, and research skills 
+Data Entry Clerk Attention to detail, data manipulation 
+Personal Assistant Scheduling, email correspondence, note-taking, 
+multi-tasking 
+Social Media Manager Content creation, understanding of audience and 
+social trends 
+Market Research Analyst Data analysis, understanding consumer behavior
+
+=== PAGE 72 ===
+
+Translator Language proficiency, cultural understanding 
+Language Tutor Language proficiency, teaching, and guidance 
+Sales Representative Persuasive communication, product knowledge 
+Telemarketer Persuasive communication, product knowledge 
+Recruiter (first round screening) Resume screening, basic assessment of candidates 
+News Reporter (for generating 
+simple reports) 
+Writing skill 
+Proofreader Attention to detail, language proficiency 
+Paralegal Research skills, data analysis, language proficiency 
+Librarian (for data sorting) Cataloging, organization, and research skills 
+Financial Advisor (for basic 
+advice) 
+Financial knowledge, data analysis 
+Script Writer Creativity, storytelling, language proficiency 
+Travel Agent (for itinerary 
+planning) 
+Planning, research, knowledge of geography, and 
+travel options 
+Bookkeeping Clerk Attention to detail, knowledge of financial systems 
+Real Estate Agent (for basic 
+inquiries) 
+Knowledge of real estate mark
+
+=== PAGE 73 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+73 
+ 
+Example of an AI prompt that uses roles: 
+Context: You are an experienced proofreader for a major publishing company. You 
+have an eye for catching every type of error in documents. 
+Instructions: Thoroughly proofread the following passage as if you are preparing it for 
+final publication. Check for grammar, spelling, punctuation, formatting, or syntax errors. 
+When you encounter an error, revise the text to correct it. Point out any passages that 
+need to be clarified or clarified. Ensure the passage is completely error-free and ready 
+for publication. 
+[Insert passage to proofread here] 
+ 
+This prompt instructs the AI to generate a story; the tone is lighthearted and engaging. It 
+encourages a playful, imaginative output suitable for a broad audience, especially 
+those who enjoy whimsical fiction.
+
+=== PAGE 74 ===
+
+Show as Output 
+AI prompting empowers chatbots to generate diverse formats tailored to your needs, 
+not just blocks of text. Modern chatbots can produce images, data visualizations, 
+audio, video, and more when guided by effective prompts. 
+For image creation, tools like DALL-E, Midjourney, and Stable Diffusion enable 
+prompting AI to fabricate photorealistic pictures. Adobe Firefly harnesses generative AI 
+for image editing. Prompts describing a scene or visual goals produce image-matching 
+requests. 
+Beyond images, prompts can elicit mathematical graphs, charts, infographics, and 
+other data visualization formats from AI assistants. Prompting also yields AI-generated 
+audio in voices, accents, and styles specified by the prompt. 
+Video generation remains limited but advancing. The AI toolbox grows more versatile 
+daily. Any digitally representable content can be produced on demand from well-
+crafted prompts specifying required parameters. 
+Prompting expands creative possibilities by putting these AI superpowers under your 
+direct control. Dream it up, prompt it out. 
+Category  Output Formats 
+Text-based Formats Markdown Content, Formatted Emails, Pseudocode 
+Data Formats CSV Data, JSON Format, XML Format, YAML Format, 
+Tabulated Data 
+Code and Scripting HTML and CSS, SQL Queries, Java Code, Python Code, C++ 
+Code, Shell Commands 
+Documentation and 
+Testing 
+LaTeX Documents, API Responses, Test Cases, File and Folder 
+Structure 
+Specialized Formats Regular Expressions, Mathematical Equations, UML Diagrams 
+(textual)
+
+=== PAGE 75 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+75 
+ 
+Example of an AI prompt that uses Outputs: 
+Context: You are a technical writer creating markdown tables for documentation. The 
+tables need to follow standard markdown syntax and best practices. 
+Instructions: Generate a markdown table comparing chatbot platforms - ChatGPT, 
+Claude, and Anthropic. The table should have four columns with a header row: 
+• Platform Name 
+• Language Model 
+• Creator 
+• Capabilities 
+Populate each column with the relevant data for each platform. Use the proper 
+markdown syntax for creating tables. The final deliverable should be a markdown table 
+ready to paste directly into a readme file. 
+ 
+The prompt in action using GPT-4 
+This provides context that the AI is creating markdown documentation. The instructions 
+describe the specific table structure, including column headers. Details like using proper 
+markdown syntax and paste-ready output set clear expectations. The AI can render the 
+content in the requested markdown table structure suitable for technical
+
+=== PAGE 76 ===
+
+documentation use. Defining output formats in prompts allows AIs to deliver flexible 
+results tailored to diverse use cases.
+
+=== PAGE 77 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+77 
+ 
+About The Cover  
+ 
+The ticking stopwatch represents how AI can give organizations a competitive 
+advantage by empowering them to operate and innovate quickly. AI-driven 
+automation, insights, and assistance compress processes that once took hours into 
+seconds. 
+This book provides the blueprint for building an AI-powered business primed for growth. 
+We activate our most significant asset - time- by prompting AI to amplify human skills. AI 
+gives back precious time for people to create, make connections, and drive strategic 
+progress. 
+With the tools in this handbook, harness AI as your trusted copilot slash clocksmith - 
+optimizing workflows, uncovering opportunities, and controlling time rather than letting 
+it control you. AI enables you to transcend limits and maximize moments. 
+The path to AI-enabled growth begins with the first prompt. Start your clock, and let's 
+journey into an intelligent future together, one revolutionary second at a time.
+
+=== PAGE 78 ===
+
+About the Author 
+ 
+Ron Michael "Choi" Santos has been immersed in artificial intelligence since 2022, 
+actively utilizing various AI tools to enhance his work and skills. From Anthropic's Claude 
+to OpenAI's Chat-GPT, he has hands-on experience with leading AI systems that give 
+glimpses into the technology's incredible potential. 
+With over seven years of experience in technical project management and business 
+analysis roles, Choi brings a results-driven mindset to implementing AI. He has delivered 
+successful outcomes in complex IT environments, from SAP to DevOps platforms. 
+Choi's expertise spans Agile methodologies, cloud infrastructure, blockchain, 
+automation, and full-stack development. He is passionate about emerging 
+technologies and dedicated to continuous learning. 
+Certified as an IBM Agile Advocate, Business Analysis Fundamentals instructor, and 
+Disciplined Agile Senior Scrum Master, Choi mentors others on integrating AI effectively. 
+He has coached cross-functional teams to adopt AI responsibly and align it with 
+business goals. 
+His firsthand perspective using AI himself, combined with his project leadership skills, 
+inform practical guidance for leveraging AI to amplify human capabilities. He envisions 
+an intelligent future where technology and people thrive together. 
+ 
+W3 Bluepages link: https://w3.ibm.com/#/people/112920PH1
+
+=== PAGE 79 ===
+
+The AI Advantage | Ron Santos |IBM Internal Use Only 
+ 
+79 
+ 
+Sources 
+Prompting Guides 
+1. https://learnprompting.org/docs/intro - Learn how to use ChatGPT and other AI 
+tools to accomplish your goals using our free and open-source curriculum, 
+designed for all skill levels! 
+2. https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/prompt-
+engineering - Microsoft’s introduction to AI prompt engineering 
+3. https://learn.microsoft.com/en-us/azure/ai-
+services/openai/concepts/advanced-prompt-
+engineering?pivots=programming-language-chat-completions – Advanced AI 
+prompt engineering techniques from Microsoft 
+4. https://www.agents.blue/ -Learn prompting by doing in 10minutes.  
+5. https://github.com/travistangvh/ChatGPT-Data-Science-Prompts - Data Science 
+prompts guide Travis Tang in GitHub 
+6. https://github.com/dair-ai/Prompt-Engineering-Guide - A collection of prompt 
+engineering papers carefully curated in GitHub 
+Ethical AI 
+1. https://c3.ai/glossary/artificial-intelligence/ethical-
+ai/#:~:text=Ethical%20AI%20is%20artificial%20intelligence,discrimination%2C%20a
+nd%20non%2Dmanipulation – C3 AI’s stance in Ethical AI  
+2. https://www.ibm.com/impact/ai-ethics - IBM’s AI Ethics  
+Tools 
+1. https://www.ibm.com/watson - IBM Watson AI Products 
+2. https://chat.openai.com/ - ChatGPT (Chatbot) 
+3. https://bard.google.com/ - Google Bard (Chatbot) 
+4. https://claude.ai/ - Claude AI (Chatbot) 
+5. https://www.canva.com/ - Canva, Image editor and generator  
+6. https://firefly.adobe.com/ - Adobe Firefly Image editor and generator 
+7. https://stablediffusionweb.com/ - Stable Diffusion Image Generator 
+8. https://tldrthis.com/ - Summarization 
+ 
+Miscellaneous  
+1. https://www.futurepedia.io/ - Largest AI tools directory and the recent AI news

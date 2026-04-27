@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal AI Clone | A Practical Assistant for Real Life</title>
+    <meta
+      name="description"
+      content="Build a practical personal AI clone for planning, lists, and routine email with clear guardrails, a worksheet, and a calmer step-by-step process."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="spa-rail">
+        <div class="rail-card rail-card--brand">
+          <p class="eyebrow">A calmer way to use AI</p>
+          <h1>Personal AI Clone</h1>
+          <p class="rail-copy">
+            A spa-like workspace for exploring the guide, worksheet, and core
+            ideas without bouncing around a long page.
+          </p>
+        </div>
+
+        <nav class="rail-card rail-card--nav" aria-label="Main views">
+          <p class="rail-label">Navigate</p>
+          <div class="spa-nav" id="spa-nav"></div>
+          <noscript>
+            <div class="spa-nav spa-nav--fallback">
+              <p class="fallback-copy">Interactive navigation needs JavaScript in this browser.</p>
+              <a class="button button--ghost" href="../pdf/personal-ai-clone-guide.pdf">Open Guide PDF</a>
+              <a class="button button--ghost" href="../pdf/personal-ai-clone-worksheet.pdf">Open Worksheet PDF</a>
+            </div>
+          </noscript>
+        </nav>
+
+        <section class="rail-card rail-card--actions">
+          <p class="rail-label">Downloads</p>
+          <a class="button button--ghost" href="../pdf/context-engineering-guide.pdf">
+            Open Context Guide PDF
+          </a>
+          <a class="button button--ghost" href="../pdf/agentic-workflow-foundations.pdf">
+            Open Agentic PDF
+          </a>
+          <a class="button button--ghost" href="../pdf/weekly-planning-clone-pack.pdf">
+            Open Weekly Planning PDF
+          </a>
+          <a class="button button--ghost" href="../pdf/daily-admin-clone-pack.pdf">
+            Open Daily Admin PDF
+          </a>
+          <a class="button button--ghost" href="../pdf/prompt-starter-pack.pdf">
+            Open Prompt Pack PDF
+          </a>
+          <a class="button button--primary" href="../pdf/personal-ai-clone-guide.pdf">
+            Open Guide PDF
+          </a>
+          <a class="button button--ghost" href="../pdf/personal-ai-clone-worksheet.pdf">
+            Open Worksheet PDF
+          </a>
+          <a class="button button--ghost" href="../personal-ai-clone-copy-pack.md">
+            Open Copy Pack
+          </a>
+        </section>
+      </aside>
+
+      <main class="spa-main">
+        <header class="view-hero">
+          <div class="view-hero__copy">
+            <p class="eyebrow" id="view-eyebrow"></p>
+            <h2 id="view-title"></h2>
+            <p class="view-hero__lede" id="view-lede"></p>
+            <div class="view-jumps" id="view-jumps" aria-label="Jump to section"></div>
+          </div>
+
+          <div class="view-hero__art">
+            <div class="view-hero__image">
+              <img
+                src="./assets/hero-illustration.png"
+                alt="Illustration of an organized desk and calming planning tools."
+              />
+            </div>
+            <div class="view-hero__note" id="view-note"></div>
+          </div>
+        </header>
+
+        <section class="view-surface">
+          <div class="view-content" id="view-content" tabindex="-1">
+            <section class="content-section content-section--loading">
+              <div class="content-section__header">
+                <p class="eyebrow">Loading</p>
+                <h3>Preparing the in-page view.</h3>
+              </div>
+              <p class="content-copy">
+                If this message stays here, the in-app browser is likely blocking the interactive script.
+                The PDF downloads on the left will still work, and I can also add a non-JavaScript fallback view.
+              </p>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script defer src="./app.js"></script>
+  </body>
+</html>
