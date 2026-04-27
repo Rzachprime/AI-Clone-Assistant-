@@ -95,56 +95,56 @@ const views = {
             title: "Context Engineering Guide",
             text:
               "A practical guide to capturing and reusing transcripts, notes, decisions, and recurring context so the clone becomes more proactive over time.",
-            href: "../pdf/context-engineering-guide.pdf",
+            href: "./pdf/context-engineering-guide.pdf",
           },
           {
             kicker: "Workflow Guide",
             title: "Agentic Workflow Foundations",
             text:
               "A calm introduction to progressive autonomy, workflow design, review points, boundaries, and low-risk forward motion.",
-            href: "../pdf/agentic-workflow-foundations.pdf",
+            href: "./pdf/agentic-workflow-foundations.pdf",
           },
           {
             kicker: "Planning Pack",
             title: "Weekly Planning Clone Pack",
             text:
               "A practical weekly reset system for backlog triage, realistic priorities, overload detection, and calmer weekly starts.",
-            href: "../pdf/weekly-planning-clone-pack.pdf",
+            href: "./pdf/weekly-planning-clone-pack.pdf",
           },
           {
             kicker: "Admin Pack",
             title: "Daily Admin Clone Pack",
             text:
               "A practical system for planning, task sorting, reminders, and routine follow-ups with less mental clutter.",
-            href: "../pdf/daily-admin-clone-pack.pdf",
+            href: "./pdf/daily-admin-clone-pack.pdf",
           },
           {
             kicker: "Prompt Pack",
             title: "Prompt Starter Pack",
             text:
               "Learn how to structure better prompts with clearer roles, stronger tone choices, better formats, and practical boundaries.",
-            href: "../pdf/prompt-starter-pack.pdf",
+            href: "./pdf/prompt-starter-pack.pdf",
           },
           {
             kicker: "Guide",
             title: "Step-by-step handbook",
             text:
               "Learn how to define your clone, set healthy limits, test one use case, and improve it without overbuilding.",
-            href: "../pdf/personal-ai-clone-guide.pdf",
+            href: "./pdf/personal-ai-clone-guide.pdf",
           },
           {
             kicker: "Worksheet",
             title: "Printable workbook",
             text:
               "Capture your tone, priorities, no-go areas, and first prompt in a format that is easy to fill in and reuse.",
-            href: "../pdf/personal-ai-clone-worksheet.pdf",
+            href: "./pdf/personal-ai-clone-worksheet.pdf",
           },
           {
             kicker: "Copy",
             title: "Messaging pack",
             text:
               "Browse the copy hooks and positioning language behind the project if you want to share or teach it.",
-            href: "../personal-ai-clone-copy-pack.md",
+            href: "#messaging",
           },
         ],
       },
@@ -190,14 +190,14 @@ const views = {
             title: "Personal AI Clone Guide",
             text:
               "Start here if you want the honest big picture: what AI cloning is, what it is not, and where it helps most in real life.",
-            href: "../pdf/personal-ai-clone-guide.pdf",
+            href: "./pdf/personal-ai-clone-guide.pdf",
           },
           {
             kicker: "Step 2",
             title: "Prompt Starter Pack",
             text:
               "Read this next if you do not yet know how to write useful prompts or understand why some prompts work better than others.",
-            href: "../pdf/prompt-starter-pack.pdf",
+            href: "./pdf/prompt-starter-pack.pdf",
           },
           {
             kicker: "Step 3",
@@ -211,14 +211,14 @@ const views = {
             title: "Daily Admin Clone Pack",
             text:
               "This is the easiest practical first build because it focuses on repetitive, low-risk tasks like planning, tasks, and routine follow-ups.",
-            href: "../pdf/daily-admin-clone-pack.pdf",
+            href: "./pdf/daily-admin-clone-pack.pdf",
           },
           {
             kicker: "Step 5",
             title: "Weekly Planning Clone Pack",
             text:
               "Use this after the daily workflow works. It adds a weekly rhythm without jumping too quickly into more complex systems.",
-            href: "../pdf/weekly-planning-clone-pack.pdf",
+            href: "./pdf/weekly-planning-clone-pack.pdf",
           },
         ],
       },
@@ -698,7 +698,237 @@ const views = {
       },
     ],
   },
-  resources: {
+  messaging: {
+    eyebrow: "Messaging",
+    title: "Keep the words honest, calm, and useful.",
+    lede:
+      "This view turns the old markdown copy pack into a proper in-site page. It is here to help you talk about AI cloning without slipping into exaggerated promises or vague transformation language.",
+    note: {
+      label: "Best messaging rule",
+      body: "Describe what the system helps with in daily life. Avoid promising identity transfer, perfect judgment, or revolutionary autonomy.",
+    },
+    jumps: [
+      { id: "messaging-principles", label: "Principles" },
+      { id: "messaging-lines", label: "Core Lines" },
+      { id: "workflow-ladder", label: "3 Levels" },
+      { id: "how-to-use-copy", label: "How To Use It" },
+    ],
+    sections: [
+      {
+        id: "messaging-principles",
+        eyebrow: "Positioning principles",
+        title: "Good messaging protects the reader from hype.",
+        body: [
+          "Most people do not need more grand promises around AI. They need clearer language about what it can help with today, what it still cannot do, and where human review still matters.",
+          "When the words stay grounded, the product feels more trustworthy. That matters even more for beginners, because they are often the people most vulnerable to exaggerated claims.",
+        ],
+        layout: "grid",
+        cards: [
+          {
+            title: "Lead with relief",
+            text: "Talk about planning, lists, follow-ups, and mental load before talking about advanced systems or autonomy.",
+          },
+          {
+            title: "Name the limits",
+            text: "Say clearly that a useful clone is a bounded assistant, not a digital twin and not a replacement for judgment.",
+            tone: "soft",
+          },
+          {
+            title: "Teach before you sell",
+            text: "Explain what prompts, context, and workflows actually do so the reader can make an informed decision instead of reacting to excitement alone.",
+            tone: "warm",
+          },
+        ],
+      },
+      {
+        id: "messaging-lines",
+        eyebrow: "Core language",
+        title: "These lines hold the tone of the project together.",
+        layout: "quotes",
+        quotes: [
+          "The real power of AI is not replacing your life. It is helping carry the little things that have been weighing on you.",
+          "A useful AI clone is a bounded assistant, not a digital twin.",
+          "The goal is not to automate your humanity. It is to reduce the drag of repetitive, low-risk work.",
+          "Build one small thing that helps, then let that be enough for now.",
+          "Clear expectations protect people better than dramatic promises do.",
+        ],
+      },
+      {
+        id: "workflow-ladder",
+        eyebrow: "The 3-level ladder",
+        title: "This is the teaching arc behind the site and the broader product line.",
+        body: [
+          "The ladder works because it gives beginners a believable path. It starts with direct prompting, moves into better framing, and only then introduces the idea of building a stronger context layer.",
+        ],
+        layout: "ladder",
+        stages: [
+          {
+            level: "Level 1",
+            title: "Prompt Engineering",
+            summary: "Learn how to ask clearly, define the task, and request a useful format.",
+            outcome: "This teaches the basics of getting more usable output.",
+            accent: "forest",
+          },
+          {
+            level: "Level 2",
+            title: "Context Sandwich",
+            summary: "Learn to surround a prompt with the right background, goal, and constraints so the answer actually fits the situation.",
+            outcome: "This improves relevance, tone, and fit.",
+            accent: "sand",
+          },
+          {
+            level: "Level 3",
+            title: "Context Engineering",
+            summary: "Learn how to capture and reuse recurring context so AI can support you more proactively over time.",
+            outcome: "This is the bridge into bounded workflow and agentic support.",
+            accent: "clay",
+          },
+        ],
+      },
+      {
+        id: "how-to-use-copy",
+        eyebrow: "How to use this",
+        title: "Use this page as a working style guide, not a script you follow blindly.",
+        body: [
+          "If you are writing a homepage, email sequence, webinar, or client explanation, start here first. Pull one or two core lines, then rewrite them in a way that fits the actual audience and promise.",
+          "If you want the source files for reference, keep the markdown documents in the repo. For published use, this web view is the cleaner and more beginner-friendly version.",
+        ],
+        layout: "steps",
+        steps: [
+          {
+            number: "01",
+            title: "Choose the reader's real problem",
+            text: "Start with the friction they feel in daily life, not with AI vocabulary.",
+          },
+          {
+            number: "02",
+            title: "Choose one honest promise",
+            text: "Focus on time, clarity, planning, or follow-through instead of life-changing claims.",
+          },
+          {
+            number: "03",
+            title: "Add one realistic boundary",
+            text: "Say what still needs review, judgment, or care so trust stays intact.",
+          },
+        ],
+      },
+    ],
+  },
+  launch: {
+    eyebrow: "Launch Kit",
+    title: "Turn the ideas into a page and a simple follow-up sequence.",
+    lede:
+      "This view replaces the old markdown landing-page and email-sequence drafts with a more readable in-site workspace. It is meant to help you publish or teach the material without leaving the site.",
+    note: {
+      label: "Keep the launch simple",
+      body: "A calm, clear beginner path will usually convert better than a complicated funnel built around urgency and hype.",
+    },
+    jumps: [
+      { id: "landing-structure", label: "Landing Page" },
+      { id: "email-arc", label: "Email Arc" },
+      { id: "beginner-offer", label: "Beginner Offer" },
+      { id: "publish-notes", label: "Publish Notes" },
+    ],
+    sections: [
+      {
+        id: "landing-structure",
+        eyebrow: "Landing page structure",
+        title: "A beginner-friendly page should guide, not overwhelm.",
+        body: [
+          "The strongest landing page for this project is not built around pressure. It is built around relief, realistic expectations, and a clear next step for someone who is still learning what AI can do.",
+        ],
+        layout: "timeline",
+        timeline: [
+          "Open with the real problem: the constant stream of reminders, lists, follow-ups, and loose ends that wears people down.",
+          "State the honest promise: a bounded assistant that helps with low-risk repetitive work, not a digital twin.",
+          "Show the beginner path: guide, prompt pack, worksheet, and one practical first use case.",
+          "Introduce the 3-level ladder so readers understand how prompts grow into better context and then into bounded workflows.",
+          "Close with a gentle invitation to start with one useful task rather than trying to redesign a whole life at once.",
+        ],
+      },
+      {
+        id: "email-arc",
+        eyebrow: "Email sequence",
+        title: "A simple 5-part sequence can teach and build trust at the same time.",
+        layout: "steps",
+        steps: [
+          {
+            number: "01",
+            title: "Reality check email",
+            text: "Explain what AI cloning can realistically do and why hype creates bad expectations.",
+          },
+          {
+            number: "02",
+            title: "Prompt basics email",
+            text: "Show why stronger prompts improve output and give one small example the reader can try immediately.",
+          },
+          {
+            number: "03",
+            title: "Context email",
+            text: "Teach why better context matters more than clever wording alone and introduce the Context Sandwich idea.",
+          },
+          {
+            number: "04",
+            title: "Passive use case email",
+            text: "Use meeting notes, transcripts, or recurring admin as proof that context can make the tool genuinely useful.",
+          },
+          {
+            number: "05",
+            title: "Bounded workflow email",
+            text: "Show the bridge into agentic support carefully, with boundaries, review points, and low-risk examples.",
+          },
+        ],
+      },
+      {
+        id: "beginner-offer",
+        eyebrow: "What to offer first",
+        title: "The first offer should feel safe enough to try.",
+        layout: "grid",
+        cards: [
+          {
+            title: "Lead with the guide",
+            text: "The guide sets expectations and helps the reader understand the point of the project before they try to build anything.",
+          },
+          {
+            title: "Pair it with the worksheet",
+            text: "The worksheet gives them something practical to do right away, which helps the learning stick.",
+            tone: "soft",
+          },
+          {
+            title: "Suggest one first build",
+            text: "A daily admin or weekly planning use case is easier to trust than anything framed as autonomous life management.",
+            tone: "warm",
+          },
+        ],
+      },
+      {
+        id: "publish-notes",
+        eyebrow: "Publish notes",
+        title: "What to keep in mind when you turn this into public-facing material.",
+        body: [
+          "Beginners usually need more orientation than experienced AI users do. Keep your page direct, define unfamiliar terms, and show people what to read first so they do not have to guess.",
+          "If you keep the markdown files in the repo, treat them as source notes. Use this page as the published experience so the site stays coherent and more professional.",
+        ],
+        layout: "grid",
+        cards: [
+          {
+            title: "Use plain language",
+            text: "Explain what a prompt, context, and workflow are before using them as shorthand.",
+          },
+          {
+            title: "Prefer realistic examples",
+            text: "Planning, notes, summaries, and follow-ups are more believable than dramatic automation claims.",
+            tone: "soft",
+          },
+          {
+            title: "Keep trust visible",
+            text: "Repeat that review, judgment, and boundaries still matter. That is a strength, not a weakness.",
+            tone: "warm",
+          },
+        ],
+      },
+    ],
+  },  resources: {
     eyebrow: "Resources",
     title: "Use this like a calm library, not a hype funnel.",
     lede:
@@ -725,67 +955,67 @@ const views = {
             kicker: "PDF",
             title: "Context Engineering Guide",
             text: "A polished guide to building the context layer that makes proactive clone support possible.",
-            href: "../pdf/context-engineering-guide.pdf",
+            href: "./pdf/context-engineering-guide.pdf",
           },
           {
             kicker: "PDF",
             title: "Agentic Workflow Foundations",
             text: "A polished guide to moving from prompts to bounded workflows with clear triggers, review points, and stop conditions.",
-            href: "../pdf/agentic-workflow-foundations.pdf",
+            href: "./pdf/agentic-workflow-foundations.pdf",
           },
           {
             kicker: "Framework",
             title: "Progressive Clone Workflow Pitch",
             text: "The 3-level messaging framework for Prompt Engineering, the Context Sandwich, and Context Engineering.",
-            href: "../products/progressive-clone-workflow-pitch.md",
+            href: "#messaging",
           },
           {
             kicker: "Landing Page",
             title: "Context Engineering Landing Page",
             text: "A short-form landing page draft built around the 3-level ladder and the new Context Engineering guide.",
-            href: "../products/context-engineering-landing-page.md",
+            href: "#launch",
           },
           {
             kicker: "Email Sequence",
             title: "Context Engineering Email Sequence",
             text: "A five-email nurture sequence that introduces the breakthrough, the passive use case, and the bridge to agentic support.",
-            href: "../products/context-engineering-email-sequence.md",
+            href: "#launch",
           },
           {
             kicker: "PDF",
             title: "Weekly Planning Clone Pack",
             text: "A polished handbook for weekly review, priority setting, backlog triage, and protecting attention before the week fills up.",
-            href: "../pdf/weekly-planning-clone-pack.pdf",
+            href: "./pdf/weekly-planning-clone-pack.pdf",
           },
           {
             kicker: "PDF",
             title: "Daily Admin Clone Pack",
             text: "A polished handbook for using your clone to handle everyday planning, lists, and low-risk follow-ups.",
-            href: "../pdf/daily-admin-clone-pack.pdf",
+            href: "./pdf/daily-admin-clone-pack.pdf",
           },
           {
             kicker: "PDF",
             title: "Prompt Starter Pack",
             text: "A polished quick-start handbook for writing better prompts for your personal AI clone.",
-            href: "../pdf/prompt-starter-pack.pdf",
+            href: "./pdf/prompt-starter-pack.pdf",
           },
           {
             kicker: "PDF",
             title: "Personal AI Clone Guide",
             text: "The polished handbook version with cover art, quick start, and section pacing.",
-            href: "../pdf/personal-ai-clone-guide.pdf",
+            href: "./pdf/personal-ai-clone-guide.pdf",
           },
           {
             kicker: "PDF",
             title: "Personal AI Clone Worksheet",
             text: "A printable workbook with checkboxes, scorecards, prompt space, and weekly planning pages.",
-            href: "../pdf/personal-ai-clone-worksheet.pdf",
+            href: "./pdf/personal-ai-clone-worksheet.pdf",
           },
           {
-            kicker: "Markdown",
-            title: "Original copy pack",
-            text: "The headline and messaging library behind the site if you want to reuse or revise the words.",
-            href: "../personal-ai-clone-copy-pack.md",
+            kicker: "Web View",
+            title: "Messaging and positioning view",
+            text: "An in-site page with the messaging principles, copy lines, and workflow ladder behind the project.",
+            href: "#messaging",
           },
         ],
       },
@@ -1358,3 +1588,5 @@ window.addEventListener("hashchange", () => {
 });
 
 renderView();
+
+
