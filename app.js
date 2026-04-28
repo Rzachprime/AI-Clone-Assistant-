@@ -4222,6 +4222,7 @@ const handbookChapters = [
   }
 ];
 let activeHandbookChapter = 0;
+let activeHandbookSection = 0;
 
 const views = {
   overview: {
@@ -5686,8 +5687,52 @@ function renderBookBlocks(blocks) {
   return article;
 }
 
-function renderBook() {
+function groupHandbookSections(chapter) {
+  const sections = [];
+  let current = null;
+
+  chapter.blocks.forEach((block) => {
+    if (block.type === "h3") {
+      if (current && current.blocks.length) sections.push(current);
+      current = {
+        title: block.text,
+        blocks: [],
+      };
+      return;
+    }
+
+    if (!current) {
+      current = {
+        title: chapter.title.replace(/^Chapter\s+\d+:\s*/, ""),
+        blocks: [],
+      };
+    }
+
+    current.blocks.push(block);
+  });
+
+  if (current && current.blocks.length) sections.push(current);
+
+  if (!sections.length) {
+    sections.push({
+      title: chapter.title.replace(/^Chapter\s+\d+:\s*/, ""),
+      blocks: chapter.blocks.slice(),
+    });
+  }
+
+  return sections;
+}
+
+function getHandbookState() {
   const chapter = handbookChapters[activeHandbookChapter];
+  const sections = groupHandbookSections(chapter);
+  activeHandbookSection = Math.max(0, Math.min(activeHandbookSection, sections.length - 1));
+  const section = sections[activeHandbookSection];
+  return { chapter, sections, section };
+}
+
+function renderBook() {
+  const { chapter, sections, section } = getHandbookState();
   const shell = el("div", "book-shell");
 
   const chapterRail = el("div", "book-chapter-strip");
@@ -5697,37 +5742,52 @@ function renderBook() {
     button.innerHTML = `<span>Chapter ${item.number}</span><strong>${item.title.replace(/^Chapter\s+\d+:\s*/, "")}</strong>`;
     button.addEventListener("click", () => {
       activeHandbookChapter = index;
+      activeHandbookSection = 0;
       renderView();
     });
     chapterRail.append(button);
   });
   shell.append(chapterRail);
 
+  const sectionRail = el("div", "book-section-strip");
+  sections.forEach((item, index) => {
+    const button = el("button", `book-section-button${index === activeHandbookSection ? " is-active" : ""}`);
+    button.type = "button";
+    button.innerHTML = `<span>${chapter.number}.${index + 1}</span><strong>${item.title}</strong>`;
+    button.addEventListener("click", () => {
+      activeHandbookSection = index;
+      renderView();
+    });
+    sectionRail.append(button);
+  });
+  shell.append(sectionRail);
+
   const reader = el("div", "book-reader");
-  const prev = el("button", `book-arrow${activeHandbookChapter === 0 ? " is-disabled" : ""}`);
+  const prev = el("button", `book-arrow${activeHandbookSection === 0 ? " is-disabled" : ""}`);
   prev.innerHTML = "&larr;";
   prev.type = "button";
-  prev.disabled = activeHandbookChapter === 0;
+  prev.disabled = activeHandbookSection === 0;
   prev.addEventListener("click", () => {
-    if (activeHandbookChapter > 0) {
-      activeHandbookChapter -= 1;
+    if (activeHandbookSection > 0) {
+      activeHandbookSection -= 1;
       renderView();
     }
   });
 
-  const next = el("button", `book-arrow${activeHandbookChapter === handbookChapters.length - 1 ? " is-disabled" : ""}`);
+  const next = el("button", `book-arrow${activeHandbookSection === sections.length - 1 ? " is-disabled" : ""}`);
   next.innerHTML = "&rarr;";
   next.type = "button";
-  next.disabled = activeHandbookChapter === handbookChapters.length - 1;
+  next.disabled = activeHandbookSection === sections.length - 1;
   next.addEventListener("click", () => {
-    if (activeHandbookChapter < handbookChapters.length - 1) {
-      activeHandbookChapter += 1;
+    if (activeHandbookSection < sections.length - 1) {
+      activeHandbookSection += 1;
       renderView();
     }
   });
 
   const page = el("article", "book-page");
   const progress = Math.round(((chapter.number) / handbookChapters.length) * 100);
+  const sectionProgress = Math.round(((activeHandbookSection + 1) / sections.length) * 100);
   page.innerHTML = `
     <div class="book-page__meta">
       <span class="book-page__part">${chapter.part}</span>
@@ -5737,12 +5797,20 @@ function renderBook() {
       <div class="book-progress__bar"><span style="width: ${progress}%"></span></div>
       <strong class="book-progress__label">${progress}% through the handbook</strong>
     </div>
+    <div class="book-page__meta book-page__meta--subsection">
+      <span class="book-page__section-kicker">Section ${chapter.number}.${activeHandbookSection + 1}</span>
+      <span class="book-page__section-counter">${activeHandbookSection + 1} of ${sections.length} in this chapter</span>
+    </div>
+    <div class="book-progress book-progress--subsection" aria-label="Section progress">
+      <div class="book-progress__bar"><span style="width: ${sectionProgress}%"></span></div>
+      <strong class="book-progress__label">${section.title}</strong>
+    </div>
     <div class="book-page__header">
-      <h3>${chapter.title}</h3>
+      <h3>${section.title}</h3>
       <p class="book-page__summary">${chapter.summary}</p>
     </div>
   `;
-  page.append(renderBookBlocks(chapter.blocks));
+  page.append(renderBookBlocks(section.blocks));
 
   reader.append(prev, page, next);
   shell.append(reader);
@@ -5790,7 +5858,10 @@ function renderView() {
 }
 
 function setView(key) {
-  if (key === "handbook" && activeView !== "handbook") activeHandbookChapter = 0;
+  if (key === "handbook" && activeView !== "handbook") {
+    activeHandbookChapter = 0;
+    activeHandbookSection = 0;
+  }
   activeView = key;
   window.location.hash = key;
   renderView();
@@ -5799,6 +5870,10 @@ function setView(key) {
 window.addEventListener("hashchange", () => {
   const next = window.location.hash.replace("#", "");
   if (views[next] && next !== activeView) {
+    if (next === "handbook") {
+      activeHandbookChapter = 0;
+      activeHandbookSection = 0;
+    }
     activeView = next;
     renderView();
   }
@@ -5806,12 +5881,13 @@ window.addEventListener("hashchange", () => {
 
 window.addEventListener("keydown", (event) => {
   if (activeView !== "handbook") return;
-  if (event.key === "ArrowLeft" && activeHandbookChapter > 0) {
-    activeHandbookChapter -= 1;
+  const { sections } = getHandbookState();
+  if (event.key === "ArrowLeft" && activeHandbookSection > 0) {
+    activeHandbookSection -= 1;
     renderView();
   }
-  if (event.key === "ArrowRight" && activeHandbookChapter < handbookChapters.length - 1) {
-    activeHandbookChapter += 1;
+  if (event.key === "ArrowRight" && activeHandbookSection < sections.length - 1) {
+    activeHandbookSection += 1;
     renderView();
   }
 });

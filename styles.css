@@ -917,6 +917,12 @@ textarea.worksheet-input {
   gap: 12px;
 }
 
+.book-section-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .book-chapter-button {
   padding: 14px 16px;
   border: 1px solid rgba(52, 82, 77, 0.12);
@@ -948,6 +954,38 @@ textarea.worksheet-input {
   transform: translateY(-2px);
   border-color: rgba(52, 82, 77, 0.22);
   box-shadow: 0 18px 28px rgba(52, 82, 77, 0.12);
+}
+
+.book-section-button {
+  padding: 10px 14px;
+  border: 1px solid rgba(52, 82, 77, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 251, 245, 0.82);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.book-section-button span {
+  display: inline-flex;
+  margin-right: 8px;
+  color: var(--terracotta);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.book-section-button strong {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.book-section-button:hover,
+.book-section-button.is-active {
+  transform: translateY(-1px);
+  border-color: rgba(52, 82, 77, 0.2);
+  box-shadow: 0 12px 22px rgba(52, 82, 77, 0.1);
 }
 
 .book-reader {
@@ -990,6 +1028,11 @@ textarea.worksheet-input {
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.book-page__meta--subsection {
+  margin-top: 16px;
+  color: var(--forest);
 }
 
 .book-page__header h3 {
@@ -1073,6 +1116,10 @@ textarea.worksheet-input {
 
 .book-progress {
   margin-top: 16px;
+}
+
+.book-progress--subsection {
+  margin-top: 12px;
 }
 
 .book-progress__bar {
