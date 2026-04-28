@@ -142,7 +142,7 @@ const views = {
   },
   start: {
     eyebrow: "Start Here",
-    title: "If you are new to AI, this is the path to follow.",
+    title: "If you are new to AI Assistants or AI Cloning, this is the path to follow.",
     lede:
       "This view is for people with little or no experience using AI. Start small, stay realistic, and use the documents in an order that builds understanding instead of confusion.",
     note: {
@@ -1136,8 +1136,8 @@ const viewJumps = document.querySelector("#view-jumps");
 const viewContent = document.querySelector("#view-content");
 const viewNote = document.querySelector("#view-note");
 
-let activeView = window.location.hash.replace("#", "") || "overview";
-if (!views[activeView]) activeView = "overview";
+let activeView = window.location.hash.replace("#", "") || "start";
+if (!views[activeView]) activeView = "start";
 
 const worksheetStorageKey = "personal-ai-clone-instructions-worksheet";
 const worksheetFieldGroups = [
