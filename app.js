@@ -4372,7 +4372,7 @@ const views = {
       "Start small, stay realistic, and move through the material in an order that builds understanding instead of confusion.",
     note: {
       label: "Best first move",
-      body: "Use the guide, prompt pack, worksheet, and one low-risk workflow before you explore advanced systems.",
+      body: "Use the guide, prompt pack, handbook, worksheet, and one low-risk workflow before you explore advanced systems.",
     },
     jumps: [
       { id: "beginner-path", label: "Beginner Path" },
@@ -4398,11 +4398,16 @@ const views = {
           },
           {
             number: "03",
+            title: "Read the handbook",
+            text: "Use the Agentic Agents Beginner Handbook before you explore agents for cloning. It gives the mental model first.",
+          },
+          {
+            number: "04",
             title: "Use the worksheet",
             text: "Turn your own tone, rules, and goals into something reusable instead of trying to hold it all in your head.",
           },
           {
-            number: "04",
+            number: "05",
             title: "Try one practical workflow",
             text: "Start with Daily Admin, then move to Weekly Planning only if the first workflow actually helps.",
           },
@@ -4429,6 +4434,13 @@ const views = {
             href: "./pdf/prompt-starter-pack.pdf",
           },
           {
+            kicker: "Read this before agents",
+            title: "Agentic Agents Beginner Handbook",
+            text:
+              "The in-site reading mode that explains what agentic agents are, how they work, and how to use them responsibly before you apply them to cloning.",
+            href: "#handbook",
+          },
+          {
             kicker: "Do the exercise",
             title: "Interactive Worksheet",
             text:
@@ -4447,7 +4459,7 @@ const views = {
       {
         id: "learn-later",
         eyebrow: "Learn later",
-        title: "Save these for after the basics make sense.",
+        title: "Save these for after the basics and the handbook make sense.",
         layout: "grid",
         cards: [
           {
@@ -4456,7 +4468,7 @@ const views = {
           },
           {
             title: "Context Engineering",
-            text: "Use this later when you are ready to understand how recurring notes and transcripts make support more proactive.",
+            text: "Use this after the handbook when you are ready to understand how recurring notes and transcripts make support more proactive.",
             tone: "soft",
           },
           {
@@ -4465,6 +4477,25 @@ const views = {
             tone: "warm",
           },
         ],
+      },
+    ],
+  },
+  handbook: {
+    eyebrow: "Handbook",
+    title: "Agentic Agents: A Beginner Handbook.",
+    lede:
+      "Read this before you try to use agents inside cloning systems. It explains what agentic agents are, how to build them, and how to use them successfully in a calm, chapter-by-chapter format.",
+    note: {
+      label: "Best reading order",
+      body: "Start with Part I if agents are still new to you. Move into Parts II and III when you are ready to build or supervise one.",
+    },
+    jumps: [],
+    sections: [
+      {
+        id: "book-reader",
+        eyebrow: "Reading mode",
+        title: "A chapter-by-chapter reader built from the handbook manuscript.",
+        layout: "book",
       },
     ],
   },
