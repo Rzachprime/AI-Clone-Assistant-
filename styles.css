@@ -310,12 +310,12 @@ li {
 
 .view-hero__art {
   position: relative;
-  min-height: 320px;
+  min-height: 280px;
 }
 
 .view-hero__image {
   position: absolute;
-  inset: 0 36px 50px 0;
+  inset: 0 28px 42px 0;
   overflow: hidden;
   border-radius: var(--radius-lg);
   box-shadow: 0 24px 46px rgba(52, 82, 77, 0.16);
@@ -356,7 +356,7 @@ li {
 }
 
 .view-content {
-  height: calc(100vh - 330px);
+  height: calc(100vh - 292px);
   min-height: 420px;
   overflow: auto;
   padding-right: 8px;
