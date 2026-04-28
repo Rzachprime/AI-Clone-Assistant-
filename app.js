@@ -9,12 +9,40 @@ const views = {
       body: "Planning, drafting, organizing, and follow-through support with human review still in place.",
     },
     jumps: [
+      { id: "start-first", label: "Start First" },
       { id: "why-it-matters", label: "Why It Matters" },
       { id: "what-it-is", label: "Reality Check" },
       { id: "what-it-helps", label: "What It Helps With" },
       { id: "what-you-get", label: "What You Get" },
     ],
     sections: [
+      {
+        id: "start-first",
+        eyebrow: "Start with this first",
+        title: "If this is your first real week with AI, do not start with agents.",
+        body: [
+          "Start with the guide, the prompt pack, and one low-risk use case. That is enough to tell you whether AI support is actually helpful in your life before you move into more advanced ideas.",
+          "The point of this project is not to impress you with complexity. It is to help you understand what is useful, what is overpromised, and what is worth trying carefully.",
+        ],
+        layout: "steps",
+        steps: [
+          {
+            number: "01",
+            title: "Read the guide",
+            text: "Use the Personal AI Clone Guide to understand what AI cloning can honestly do and where the limits still are.",
+          },
+          {
+            number: "02",
+            title: "Learn prompting",
+            text: "Use the Prompt Starter Pack so you know how to ask for useful work clearly before you think about automation.",
+          },
+          {
+            number: "03",
+            title: "Try one small workflow",
+            text: "Use Daily Admin or the interactive worksheet on one real task like planning, list cleanup, or routine email drafting.",
+          },
+        ],
+      },
       {
         id: "why-it-matters",
         eyebrow: "Why it matters",
