@@ -5696,10 +5696,15 @@ function renderBook() {
   });
 
   const page = el("article", "book-page");
+  const progress = Math.round(((chapter.number) / handbookChapters.length) * 100);
   page.innerHTML = `
     <div class="book-page__meta">
       <span class="book-page__part">${chapter.part}</span>
       <span class="book-page__counter">Chapter ${chapter.number} of ${handbookChapters.length}</span>
+    </div>
+    <div class="book-progress" aria-label="Chapter progress">
+      <div class="book-progress__bar"><span style="width: ${progress}%"></span></div>
+      <strong class="book-progress__label">${progress}% through the handbook</strong>
     </div>
     <div class="book-page__header">
       <h3>${chapter.title}</h3>
