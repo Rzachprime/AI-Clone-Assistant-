@@ -5731,6 +5731,10 @@ function getHandbookState() {
   return { chapter, sections, section };
 }
 
+function cleanHandbookSectionTitle(title) {
+  return title.replace(/^\d+\.\d+\s+/, "").trim();
+}
+
 function renderBook() {
   const { chapter, sections, section } = getHandbookState();
   const shell = el("div", "book-shell");
@@ -5753,7 +5757,7 @@ function renderBook() {
   sections.forEach((item, index) => {
     const button = el("button", `book-section-button${index === activeHandbookSection ? " is-active" : ""}`);
     button.type = "button";
-    button.innerHTML = `<span>${chapter.number}.${index + 1}</span><strong>${item.title}</strong>`;
+    button.innerHTML = `<span>${chapter.number}.${index + 1}</span><strong>${cleanHandbookSectionTitle(item.title)}</strong>`;
     button.addEventListener("click", () => {
       activeHandbookSection = index;
       renderView();
