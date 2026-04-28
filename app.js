@@ -4494,8 +4494,8 @@ const views = {
     sections: [
       {
         id: "book-reader",
-        eyebrow: "Reading mode",
-        title: "A chapter-by-chapter reader built from the handbook manuscript.",
+        eyebrow: "Reading panel",
+        title: "Read one section at a time and move forward with the arrows.",
         layout: "book",
       },
     ],
@@ -5227,6 +5227,8 @@ const views = {
 };
 
 const nav = document.querySelector("#spa-nav");
+const navLabel = document.querySelector("#rail-nav-label");
+const navCard = nav?.closest(".rail-card--nav");
 const viewEyebrow = document.querySelector("#view-eyebrow");
 const viewTitle = document.querySelector("#view-title");
 const viewLede = document.querySelector("#view-lede");
@@ -5547,7 +5549,92 @@ function refreshWorksheetOutputs() {
   if (cloneOutput) cloneOutput.value = buildCloneProfile(worksheetState);
 }
 
+function renderHandbookNav() {
+  const { chapter, sections } = getHandbookState();
+  const nodes = [];
+
+  const home = el("button", "book-home-button");
+  home.type = "button";
+  home.innerHTML = `<span>Home</span><strong>Back to Start Here</strong>`;
+  home.addEventListener("click", () => setView("start"));
+  nodes.push(home);
+
+  const chapterRail = el("div", "book-chapter-strip book-chapter-strip--sidebar");
+  handbookChapters.forEach((item, index) => {
+    const button = el("button", `book-chapter-button${index === activeHandbookChapter ? " is-active" : ""}`);
+    button.type = "button";
+    button.innerHTML = `<span>Chapter ${item.number}</span><strong>${item.title.replace(/^Chapter\s+\d+:\s*/, "")}</strong>`;
+    button.addEventListener("click", () => {
+      activeHandbookChapter = index;
+      activeHandbookSection = 0;
+      renderView();
+    });
+    chapterRail.append(button);
+  });
+  nodes.push(chapterRail);
+
+  const sectionPanel = el("div", "book-side-panel");
+  sectionPanel.innerHTML = `
+    <div class="book-side-panel__header">
+      <span>${chapter.part}</span>
+      <h4>Chapter ${chapter.number}</h4>
+      <p>${chapter.title.replace(/^Chapter\s+\d+:\s*/, "")}</p>
+    </div>
+  `;
+
+  const prevChapter = el("button", `book-side-button${activeHandbookChapter === 0 ? " is-disabled" : ""}`);
+  prevChapter.type = "button";
+  prevChapter.disabled = activeHandbookChapter === 0;
+  prevChapter.innerHTML = `<span>Previous Chapter</span><strong>${activeHandbookChapter > 0 ? handbookChapters[activeHandbookChapter - 1].title.replace(/^Chapter\s+\d+:\s*/, "") : "Start of handbook"}</strong>`;
+  prevChapter.addEventListener("click", () => {
+    if (activeHandbookChapter > 0) {
+      activeHandbookChapter -= 1;
+      activeHandbookSection = 0;
+      renderView();
+    }
+  });
+  sectionPanel.append(prevChapter);
+
+  const sectionRail = el("div", "book-section-strip book-section-strip--sidebar");
+  sections.forEach((item, index) => {
+    const button = el("button", `book-section-button${index === activeHandbookSection ? " is-active" : ""}`);
+    button.type = "button";
+    button.innerHTML = `<span>${chapter.number}.${index + 1}</span><strong>${cleanHandbookSectionTitle(item.title)}</strong>`;
+    button.addEventListener("click", () => {
+      activeHandbookSection = index;
+      renderView();
+    });
+    sectionRail.append(button);
+  });
+  sectionPanel.append(sectionRail);
+
+  const nextChapter = el("button", `book-side-button${activeHandbookChapter === handbookChapters.length - 1 ? " is-disabled" : ""}`);
+  nextChapter.type = "button";
+  nextChapter.disabled = activeHandbookChapter === handbookChapters.length - 1;
+  nextChapter.innerHTML = `<span>Next Chapter</span><strong>${activeHandbookChapter < handbookChapters.length - 1 ? handbookChapters[activeHandbookChapter + 1].title.replace(/^Chapter\s+\d+:\s*/, "") : "End of handbook"}</strong>`;
+  nextChapter.addEventListener("click", () => {
+    if (activeHandbookChapter < handbookChapters.length - 1) {
+      activeHandbookChapter += 1;
+      activeHandbookSection = 0;
+      renderView();
+    }
+  });
+  sectionPanel.append(nextChapter);
+  nodes.push(sectionPanel);
+
+  return nodes;
+}
+
 function renderNav() {
+  if (activeView === "handbook") {
+    if (navLabel) navLabel.textContent = "Handbook";
+    navCard?.classList.add("rail-card--handbook");
+    nav.replaceChildren(...renderHandbookNav());
+    return;
+  }
+
+  if (navLabel) navLabel.textContent = "Navigate";
+  navCard?.classList.remove("rail-card--handbook");
   nav.replaceChildren(
     ...Object.entries(views).filter(([key]) => !["overview", "legacy"].includes(key)).map(([key, view]) => {
       const button = el("button", `spa-nav__button${key === activeView ? " is-active" : ""}`);
@@ -5560,6 +5647,29 @@ function renderNav() {
 }
 
 function renderJumps(view) {
+  if (activeView === "handbook") {
+    const start = el("button", "button button--primary");
+    start.type = "button";
+    start.textContent = "Start Here";
+    start.addEventListener("click", () => {
+      activeHandbookChapter = 0;
+      activeHandbookSection = 0;
+      renderView();
+      window.requestAnimationFrame(() => {
+        const target = viewContent.querySelector("#book-reader-panel");
+        target?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    const back = el("button", "button button--ghost");
+    back.type = "button";
+    back.textContent = "Back to Start Page";
+    back.addEventListener("click", () => setView("start"));
+
+    viewJumps.replaceChildren(start, back);
+    return;
+  }
+
   viewJumps.replaceChildren(
     ...view.jumps.map((jump) => {
       const button = el("button", "jump-chip", jump.label);
@@ -5738,35 +5848,8 @@ function cleanHandbookSectionTitle(title) {
 function renderBook() {
   const { chapter, sections, section } = getHandbookState();
   const shell = el("div", "book-shell");
-
-  const chapterRail = el("div", "book-chapter-strip");
-  handbookChapters.forEach((item, index) => {
-    const button = el("button", `book-chapter-button${index === activeHandbookChapter ? " is-active" : ""}`);
-    button.type = "button";
-    button.innerHTML = `<span>Chapter ${item.number}</span><strong>${item.title.replace(/^Chapter\s+\d+:\s*/, "")}</strong>`;
-    button.addEventListener("click", () => {
-      activeHandbookChapter = index;
-      activeHandbookSection = 0;
-      renderView();
-    });
-    chapterRail.append(button);
-  });
-  shell.append(chapterRail);
-
-  const sectionRail = el("div", "book-section-strip");
-  sections.forEach((item, index) => {
-    const button = el("button", `book-section-button${index === activeHandbookSection ? " is-active" : ""}`);
-    button.type = "button";
-    button.innerHTML = `<span>${chapter.number}.${index + 1}</span><strong>${cleanHandbookSectionTitle(item.title)}</strong>`;
-    button.addEventListener("click", () => {
-      activeHandbookSection = index;
-      renderView();
-    });
-    sectionRail.append(button);
-  });
-  shell.append(sectionRail);
-
   const reader = el("div", "book-reader");
+  reader.id = "book-reader-panel";
   const prev = el("button", `book-arrow${activeHandbookSection === 0 ? " is-disabled" : ""}`);
   prev.innerHTML = "&larr;";
   prev.type = "button";
@@ -5853,6 +5936,7 @@ function renderView() {
   viewTitle.textContent = view.title;
   viewLede.textContent = view.lede;
   viewNote.innerHTML = `<span>${view.note.label}</span><strong>${view.note.body}</strong>`;
+  document.body.classList.toggle("is-handbook-view", activeView === "handbook");
   renderJumps(view);
 
   viewContent.replaceChildren(...view.sections.map(renderSection));
