@@ -1,178 +1,140 @@
 const views = {
   overview: {
-    eyebrow: "Overview",
-    title: "A useful AI clone is a bounded assistant, not a digital twin.",
+    eyebrow: "Directory",
+    title: "Start here: a central directory for learning this the safe way.",
     lede:
-      "This project exists to show what AI cloning can realistically offer: better help with repetitive, low-risk work, not a revolution in judgment, identity, or human responsibility.",
+      "This landing view is meant to help a beginner understand what to read first, what each document is for, and how to move through the project in an order that improves the odds of real success.",
     note: {
-      label: "What this really offers",
-      body: "Planning, drafting, organizing, and follow-through support with human review still in place.",
+      label: "Recommended path",
+      body: "Guide first, prompt basics second, worksheet third, one practical workflow fourth. Save advanced workflow ideas for later.",
     },
     jumps: [
-      { id: "start-first", label: "Start First" },
-      { id: "why-it-matters", label: "Why It Matters" },
-      { id: "what-it-is", label: "Reality Check" },
-      { id: "what-it-helps", label: "What It Helps With" },
-      { id: "what-you-get", label: "What You Get" },
+      { id: "recommended-flow", label: "Recommended Flow" },
+      { id: "pick-your-document", label: "Pick A Document" },
+      { id: "brand-new", label: "If You Are New" },
+      { id: "reality-check", label: "Reality Check" },
     ],
     sections: [
       {
-        id: "start-first",
-        eyebrow: "Start with this first",
-        title: "If this is your first real week with AI, do not start with agents.",
+        id: "recommended-flow",
+        eyebrow: "Recommended flow",
+        title: "Follow this order if you want the best chance of actually understanding and using the material.",
         body: [
-          "Start with the guide, the prompt pack, and one low-risk use case. That is enough to tell you whether AI support is actually helpful in your life before you move into more advanced ideas.",
-          "The point of this project is not to impress you with complexity. It is to help you understand what is useful, what is overpromised, and what is worth trying carefully.",
+          "Most people get better results when they move through this in a calm sequence instead of bouncing straight into advanced terms like context engineering or agentic workflows.",
         ],
         layout: "steps",
         steps: [
           {
             number: "01",
-            title: "Read the guide",
-            text: "Use the Personal AI Clone Guide to understand what AI cloning can honestly do and where the limits still are.",
+            title: "Understand the promise and the limits",
+            text: "Read the Personal AI Clone Guide first so you know what AI cloning can realistically do and where the hype usually begins.",
           },
           {
             number: "02",
-            title: "Learn prompting",
-            text: "Use the Prompt Starter Pack so you know how to ask for useful work clearly before you think about automation.",
+            title: "Learn to prompt clearly",
+            text: "Use the Prompt Starter Pack so you can ask for useful work before you judge whether AI is helping or not.",
           },
           {
             number: "03",
-            title: "Try one small workflow",
-            text: "Use Daily Admin or the interactive worksheet on one real task like planning, list cleanup, or routine email drafting.",
+            title: "Define your own rules and tone",
+            text: "Use the worksheet to turn your goals, preferences, audience, and boundaries into something reusable.",
+          },
+          {
+            number: "04",
+            title: "Try one low-risk workflow",
+            text: "Start with Daily Admin or Weekly Planning before you explore context-heavy or agentic ideas.",
           },
         ],
       },
       {
-        id: "why-it-matters",
-        eyebrow: "Why it matters",
-        title: "The real value is small, repeated relief.",
-        body: [
-          "Life is rarely exhausting because of one dramatic responsibility. It is the steady stream of reminders, lists, follow-ups, and loose ends that fills every spare corner of the day.",
-          "A personal AI clone becomes useful when it helps with those smaller patterns honestly, without pretending it can replace a person's judgment or run a whole life.",
-        ],
-        layout: "split",
-        cards: [
-          {
-            title: "What wears people down",
-            list: [
-              "sorting a messy to-do list",
-              "planning around a real calendar",
-              "replying to routine messages",
-              "remembering small recurring tasks",
-            ],
-          },
-          {
-            title: "What this gives back",
-            text:
-              "A calmer kind of support. More breathing room. More time for the work, relationships, and responsibilities that actually deserve your full attention.",
-            tone: "warm",
-          },
-        ],
-      },
-      {
-        id: "what-it-is",
-        eyebrow: "Reality check",
-        title: "What AI cloning can actually do, and what it cannot.",
-        layout: "split",
-        cards: [
-          {
-            title: "What it can offer",
-            list: [
-              "faster first drafts",
-              "better organization",
-              "more consistent planning support",
-              "help with repetitive, low-risk tasks",
-            ],
-          },
-          {
-            title: "What it cannot honestly promise",
-            list: [
-              "thinking exactly like you",
-              "replacing real judgment",
-              "fully autonomous life management",
-              "guaranteed accuracy in high-stakes work",
-            ],
-            tone: "soft",
-          },
-        ],
-      },
-      {
-        id: "what-it-helps",
-        eyebrow: "Good first use cases",
-        title: "Start where AI is genuinely useful.",
-        body: [
-          "This works best when the task is repetitive, low-risk, and easy to review. That is where the time savings are real and the downside is manageable.",
-        ],
-        layout: "grid",
-        cards: [
-          { title: "Planning", text: "Turn a rough day into a realistic plan." },
-          { title: "Lists", text: "Sort loose tasks into today, this week, and later." },
-          { title: "Email", text: "Draft routine replies in a tone that sounds like you." },
-          { title: "Weekly review", text: "Prepare a calm reset instead of carrying everything in your head." },
-        ],
-      },
-      {
-        id: "what-you-get",
-        eyebrow: "Included",
-        title: "Everything you need to start simply and safely.",
+        id: "pick-your-document",
+        eyebrow: "Pick the right document",
+        title: "Each document has a different job. Start with the one that matches where you are.",
         layout: "resources",
         resources: [
           {
-            kicker: "New Guide",
-            title: "Context Engineering Guide",
+            kicker: "Best first read",
+            title: "Personal AI Clone Guide",
             text:
-              "A practical guide to capturing and reusing transcripts, notes, decisions, and recurring context so the clone becomes more proactive over time.",
-            href: "./pdf/context-engineering-guide.pdf",
-          },
-          {
-            kicker: "Workflow Guide",
-            title: "Agentic Workflow Foundations",
-            text:
-              "A calm introduction to progressive autonomy, workflow design, review points, boundaries, and low-risk forward motion.",
-            href: "./pdf/agentic-workflow-foundations.pdf",
-          },
-          {
-            kicker: "Planning Pack",
-            title: "Weekly Planning Clone Pack",
-            text:
-              "A practical weekly reset system for backlog triage, realistic priorities, overload detection, and calmer weekly starts.",
-            href: "./pdf/weekly-planning-clone-pack.pdf",
-          },
-          {
-            kicker: "Admin Pack",
-            title: "Daily Admin Clone Pack",
-            text:
-              "A practical system for planning, task sorting, reminders, and routine follow-ups with less mental clutter.",
-            href: "./pdf/daily-admin-clone-pack.pdf",
-          },
-          {
-            kicker: "Prompt Pack",
-            title: "Prompt Starter Pack",
-            text:
-              "Learn how to structure better prompts with clearer roles, stronger tone choices, better formats, and practical boundaries.",
-            href: "./pdf/prompt-starter-pack.pdf",
-          },
-          {
-            kicker: "Guide",
-            title: "Step-by-step handbook",
-            text:
-              "Learn how to define your clone, set healthy limits, test one use case, and improve it without overbuilding.",
+              "Choose this if you want the honest overview first: what this is, what it is not, and where it helps most in real life.",
             href: "./pdf/personal-ai-clone-guide.pdf",
           },
           {
-            kicker: "Worksheet",
-            title: "Printable workbook",
+            kicker: "Best first skill",
+            title: "Prompt Starter Pack",
             text:
-              "Capture your tone, priorities, no-go areas, and first prompt in a format that is easy to fill in and reuse.",
-            href: "./pdf/personal-ai-clone-worksheet.pdf",
+              "Choose this if you are not yet comfortable getting useful work from AI and want patient explanations, examples, and structure.",
+            href: "./pdf/prompt-starter-pack.pdf",
           },
           {
-            kicker: "Copy",
-            title: "Messaging pack",
+            kicker: "Best first exercise",
+            title: "Interactive Worksheet",
             text:
-              "Browse the copy hooks and positioning language behind the project if you want to share or teach it.",
-            href: "#messaging",
+              "Choose this if you are ready to write your own instructions, tone preferences, and working rules in a reusable format.",
+            href: "#worksheet",
+          },
+          {
+            kicker: "Best first build",
+            title: "Daily Admin Clone Pack",
+            text:
+              "Choose this if you want a low-risk practical starting point like planning, task sorting, reminders, and routine follow-ups.",
+            href: "./pdf/daily-admin-clone-pack.pdf",
+          },
+          {
+            kicker: "Next step",
+            title: "Weekly Planning Clone Pack",
+            text:
+              "Choose this after the daily workflow feels useful and you want a calmer weekly rhythm with less mental clutter.",
+            href: "./pdf/weekly-planning-clone-pack.pdf",
+          },
+          {
+            kicker: "Later",
+            title: "Context Engineering Guide",
+            text:
+              "Choose this later, after the basics make sense, if you want to understand how recurring notes, transcripts, and context make support more proactive.",
+            href: "./pdf/context-engineering-guide.pdf",
+          },
+        ],
+      },
+      {
+        id: "brand-new",
+        eyebrow: "If you are brand new",
+        title: "What to do in your first week with AI.",
+        layout: "timeline",
+        timeline: [
+          "Day 1: read the guide and highlight what feels realistic and what does not.",
+          "Day 2: read the Prompt Starter Pack and try one prompt on a real task.",
+          "Day 3: fill out the worksheet so your preferences are written down instead of floating in your head.",
+          "Day 4: use Daily Admin on one real day of planning, lists, or follow-ups.",
+          "Day 5: notice what was useful, what felt awkward, and what still needed your judgment.",
+          "Day 6: simplify your prompt instead of making it more complicated.",
+          "Day 7: decide whether this saved enough time or mental load to keep going.",
+        ],
+      },
+      {
+        id: "reality-check",
+        eyebrow: "Reality check",
+        title: "The real value is support, not magic.",
+        layout: "split",
+        cards: [
+          {
+            title: "What it can honestly help with",
+            list: [
+              "planning and organization",
+              "drafting and summarizing",
+              "routine follow-ups",
+              "low-risk repeated work",
+            ],
+          },
+          {
+            title: "What it should not promise",
+            list: [
+              "thinking exactly like you",
+              "replacing judgment",
+              "running your life autonomously",
+              "guaranteed accuracy in high-stakes situations",
+            ],
+            tone: "soft",
           },
         ],
       },
@@ -842,26 +804,52 @@ const views = {
       },
     ],
   },
-  launch: {
-    eyebrow: "Launch Kit",
-    title: "Turn the ideas into a page and a simple follow-up sequence.",
+  legacy: {
+    eyebrow: "Legacy Notes",
+    title: "Older launch and outreach notes live here for reference only.",
     lede:
-      "This view replaces the old markdown landing-page and email-sequence drafts with a more readable in-site workspace. It is meant to help you publish or teach the material without leaving the site.",
+      "This page keeps earlier landing-page and email-sequence planning notes available without treating them as part of the main beginner journey. It is reference material, not the core experience of the site.",
     note: {
-      label: "Keep the launch simple",
-      body: "A calm, clear beginner path will usually convert better than a complicated funnel built around urgency and hype.",
+      label: "Reference only",
+      body: "These notes are useful if you are packaging or teaching the project later. Most new visitors do not need this page first.",
     },
     jumps: [
-      { id: "landing-structure", label: "Landing Page" },
-      { id: "email-arc", label: "Email Arc" },
-      { id: "beginner-offer", label: "Beginner Offer" },
-      { id: "publish-notes", label: "Publish Notes" },
+      { id: "legacy-context", label: "What This Is" },
+      { id: "landing-structure", label: "Landing Notes" },
+      { id: "email-arc", label: "Email Notes" },
+      { id: "publish-notes", label: "How To Treat It" },
     ],
     sections: [
       {
+        id: "legacy-context",
+        eyebrow: "What this page is",
+        title: "These are legacy planning notes, not a public-facing beginner lesson.",
+        body: [
+          "This material came from an earlier stage of the project when we were testing launch language and follow-up structures. It can still be useful as internal reference, but it should not carry the same weight as the guide, prompt pack, worksheet, or beginner workflow pages.",
+          "Keeping it available is fine. Promoting it too strongly in the main experience is what makes the site feel less grounded than it should.",
+        ],
+        layout: "grid",
+        cards: [
+          {
+            title: "Good use",
+            text: "Use this if you are packaging the project, teaching it later, or revisiting older positioning work.",
+          },
+          {
+            title: "Not a starting point",
+            text: "If someone is new to AI, they should start with the guide, prompt pack, worksheet, and one practical use case instead.",
+            tone: "soft",
+          },
+          {
+            title: "Why it is still here",
+            text: "It preserves earlier thinking without forcing it into the main public journey.",
+            tone: "warm",
+          },
+        ],
+      },
+      {
         id: "landing-structure",
         eyebrow: "Landing page structure",
-        title: "A beginner-friendly page should guide, not overwhelm.",
+        title: "Older landing-page notes that may still be useful internally.",
         body: [
           "The strongest landing page for this project is not built around pressure. It is built around relief, realistic expectations, and a clear next step for someone who is still learning what AI can do.",
         ],
@@ -877,7 +865,7 @@ const views = {
       {
         id: "email-arc",
         eyebrow: "Email sequence",
-        title: "A simple 5-part sequence can teach and build trust at the same time.",
+        title: "Older email-sequence notes for internal reference.",
         layout: "steps",
         steps: [
           {
@@ -932,7 +920,7 @@ const views = {
       {
         id: "publish-notes",
         eyebrow: "Publish notes",
-        title: "What to keep in mind when you turn this into public-facing material.",
+        title: "How to treat this page inside the project.",
         body: [
           "Beginners usually need more orientation than experienced AI users do. Keep your page direct, define unfamiliar terms, and show people what to read first so they do not have to guess.",
           "If you keep the markdown files in the repo, treat them as source notes. Use this page as the published experience so the site stays coherent and more professional.",
@@ -998,16 +986,16 @@ const views = {
             href: "#messaging",
           },
           {
-            kicker: "Landing Page",
-            title: "Context Engineering Landing Page",
-            text: "A short-form landing page draft built around the 3-level ladder and the new Context Engineering guide.",
-            href: "#launch",
+            kicker: "Legacy Notes",
+            title: "Older landing-page notes",
+            text: "Earlier packaging notes kept for reference if you want to revisit how the project was once framed.",
+            href: "#legacy",
           },
           {
-            kicker: "Email Sequence",
-            title: "Context Engineering Email Sequence",
-            text: "A five-email nurture sequence that introduces the breakthrough, the passive use case, and the bridge to agentic support.",
-            href: "#launch",
+            kicker: "Legacy Notes",
+            title: "Older email-sequence notes",
+            text: "Earlier outreach notes kept for reference rather than as part of the beginner-facing site journey.",
+            href: "#legacy",
           },
           {
             kicker: "PDF",
@@ -1463,7 +1451,7 @@ function refreshWorksheetOutputs() {
 
 function renderNav() {
   nav.replaceChildren(
-    ...Object.entries(views).map(([key, view]) => {
+    ...Object.entries(views).filter(([key]) => key !== "legacy").map(([key, view]) => {
       const button = el("button", `spa-nav__button${key === activeView ? " is-active" : ""}`);
       button.type = "button";
       button.innerHTML = `<span>${view.eyebrow}</span><strong>${view.title}</strong>`;
