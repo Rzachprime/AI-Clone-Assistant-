@@ -273,6 +273,10 @@ li {
   min-height: calc(100vh - 36px);
 }
 
+body.is-book-reading .view-hero {
+  display: none;
+}
+
 .view-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
@@ -297,6 +301,10 @@ li {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 24px;
+}
+
+body.is-book-view .view-jumps .button {
+  min-height: 46px;
 }
 
 .jump-chip {

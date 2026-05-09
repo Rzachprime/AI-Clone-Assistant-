@@ -4221,8 +4221,79 @@ const handbookChapters = [
     ]
   }
 ];
-let activeHandbookChapter = 0;
-let activeHandbookSection = 0;
+const bookDocuments = {
+  handbook: {
+    title: "Agentic Agents: A Beginner Handbook.",
+    eyebrow: "Handbook",
+    summary:
+      "Read this before you try to use agents inside cloning systems. It explains what agentic agents are, how to build them, and how to use them successfully in a calm, chapter-by-chapter format.",
+    partLabel: "Beginner handbook",
+    embedded: handbookChapters,
+  },
+  guide: {
+    title: "Personal AI Clone Guide.",
+    eyebrow: "Guide",
+    summary:
+      "A calm starting point for understanding what AI cloning can realistically do, where it helps most, and where it should stop.",
+    partLabel: "Guide",
+    path: "./personal-ai-clone-guide.md",
+  },
+  prompt: {
+    title: "Prompt Starter Pack.",
+    eyebrow: "Prompting",
+    summary:
+      "A beginner-first walkthrough for writing clearer prompts, understanding why they work, and getting more useful output from AI tools.",
+    partLabel: "Prompt starter pack",
+    path: "./products/prompt-starter-pack.md",
+  },
+  dailyAdmin: {
+    title: "Daily Admin Clone Pack.",
+    eyebrow: "Workflow",
+    summary:
+      "A practical first workflow for planning, lists, reminders, and routine follow-ups without pretending AI should run everything.",
+    partLabel: "Daily admin pack",
+    path: "./products/daily-admin-clone-pack.md",
+  },
+  weeklyPlanning: {
+    title: "Weekly Planning Clone Pack.",
+    eyebrow: "Workflow",
+    summary:
+      "A calmer weekly rhythm for review, triage, and planning once a daily workflow already feels useful.",
+    partLabel: "Weekly planning pack",
+    path: "./products/weekly-planning-clone-pack.md",
+  },
+  contextEngineering: {
+    title: "Context Engineering Guide.",
+    eyebrow: "Advanced",
+    summary:
+      "A later-stage guide for understanding how recurring notes, transcripts, and context capture make support more proactive.",
+    partLabel: "Context engineering",
+    path: "./products/context-engineering-guide.md",
+  },
+  agenticWorkflows: {
+    title: "Agentic Workflow Foundations.",
+    eyebrow: "Advanced",
+    summary:
+      "A practical introduction to bounded agentic workflows, progressive autonomy, and safe real-world use.",
+    partLabel: "Agentic workflows",
+    path: "./products/agentic-workflow-foundations.md",
+  },
+};
+
+const bookStates = Object.fromEntries(
+  Object.entries(bookDocuments).map(([id, doc]) => [
+    id,
+    {
+      chapter: 0,
+      section: 0,
+      started: false,
+      status: doc.embedded ? "ready" : "idle",
+      error: "",
+      chapters: doc.embedded ? doc.embedded : [],
+      loadingPromise: null,
+    },
+  ]),
+);
 
 const views = {
   overview: {
@@ -4283,14 +4354,14 @@ const views = {
             title: "Personal AI Clone Guide",
             text:
               "Choose this if you want the honest overview first: what this is, what it is not, and where it helps most in real life.",
-            href: "./pdf/personal-ai-clone-guide.pdf",
+            href: "#guide",
           },
           {
             kicker: "Best first skill",
             title: "Prompt Starter Pack",
             text:
               "Choose this if you are not yet comfortable getting useful work from AI and want patient explanations, examples, and structure.",
-            href: "./pdf/prompt-starter-pack.pdf",
+            href: "#prompt",
           },
           {
             kicker: "Best first exercise",
@@ -4304,21 +4375,21 @@ const views = {
             title: "Daily Admin Clone Pack",
             text:
               "Choose this if you want a low-risk practical starting point like planning, task sorting, reminders, and routine follow-ups.",
-            href: "./pdf/daily-admin-clone-pack.pdf",
+            href: "#dailyAdmin",
           },
           {
             kicker: "Next step",
             title: "Weekly Planning Clone Pack",
             text:
               "Choose this after the daily workflow feels useful and you want a calmer weekly rhythm with less mental clutter.",
-            href: "./pdf/weekly-planning-clone-pack.pdf",
+            href: "#weeklyPlanning",
           },
           {
             kicker: "Later",
             title: "Context Engineering Guide",
             text:
               "Choose this later, after the basics make sense, if you want to understand how recurring notes, transcripts, and context make support more proactive.",
-            href: "./pdf/context-engineering-guide.pdf",
+            href: "#contextEngineering",
           },
         ],
       },
@@ -4425,14 +4496,14 @@ const views = {
             title: "Personal AI Clone Guide",
             text:
               "The honest overview for understanding what AI cloning is, what it is not, and where it helps most.",
-            href: "./pdf/personal-ai-clone-guide.pdf",
+            href: "#guide",
           },
           {
             kicker: "Learn the skill",
             title: "Prompt Starter Pack",
             text:
               "The best place to begin if you want clearer prompts, better output, and patient explanations.",
-            href: "./pdf/prompt-starter-pack.pdf",
+            href: "#prompt",
           },
           {
             kicker: "Read this before agents",
@@ -4453,7 +4524,7 @@ const views = {
             title: "Daily Admin Clone Pack",
             text:
               "The easiest practical starting point for planning, lists, reminders, and routine follow-ups.",
-            href: "./pdf/daily-admin-clone-pack.pdf",
+            href: "#dailyAdmin",
           },
         ],
       },
@@ -4499,6 +4570,133 @@ const views = {
         layout: "book",
       },
     ],
+    bookId: "handbook",
+  },
+  guide: {
+    eyebrow: "Guide",
+    title: "Personal AI Clone Guide.",
+    lede:
+      "Begin here if you want the honest explanation of what a personal AI clone can realistically offer, where it helps, and where it should stop.",
+    note: {
+      label: "Best reading order",
+      body: "Read this first if you are still deciding whether this whole idea is even useful for your life or work.",
+    },
+    jumps: [],
+    showInNav: false,
+    sections: [
+      {
+        id: "guide-reader",
+        eyebrow: "Reading panel",
+        title: "Read the guide one section at a time.",
+        layout: "book",
+      },
+    ],
+    bookId: "guide",
+  },
+  prompt: {
+    eyebrow: "Prompting",
+    title: "Prompt Starter Pack.",
+    lede:
+      "Use this when you want patient, beginner-friendly help learning how to ask for useful work clearly before you judge AI by weak outputs.",
+    note: {
+      label: "Best reading order",
+      body: "Read this after the guide. It works best when you practice on one real task instead of reading it passively.",
+    },
+    jumps: [],
+    showInNav: false,
+    sections: [
+      {
+        id: "prompt-reader",
+        eyebrow: "Reading panel",
+        title: "Read the pack one section at a time.",
+        layout: "book",
+      },
+    ],
+    bookId: "prompt",
+  },
+  dailyAdmin: {
+    eyebrow: "Workflow",
+    title: "Daily Admin Clone Pack.",
+    lede:
+      "This is the best first practical workflow for people who want AI help with planning, lists, reminders, and low-risk follow-up work.",
+    note: {
+      label: "Best reading order",
+      body: "Start here only after the guide and prompt pack make sense. It is designed to become your first useful workflow.",
+    },
+    jumps: [],
+    showInNav: false,
+    sections: [
+      {
+        id: "daily-admin-reader",
+        eyebrow: "Reading panel",
+        title: "Read the workflow pack one section at a time.",
+        layout: "book",
+      },
+    ],
+    bookId: "dailyAdmin",
+  },
+  weeklyPlanning: {
+    eyebrow: "Workflow",
+    title: "Weekly Planning Clone Pack.",
+    lede:
+      "Use this once a daily workflow already feels helpful and you want a calmer weekly review, planning, and backlog rhythm.",
+    note: {
+      label: "Best reading order",
+      body: "This is a second-step workflow. It makes the most sense after Daily Admin already works in real life.",
+    },
+    jumps: [],
+    showInNav: false,
+    sections: [
+      {
+        id: "weekly-planning-reader",
+        eyebrow: "Reading panel",
+        title: "Read the planning pack one section at a time.",
+        layout: "book",
+      },
+    ],
+    bookId: "weeklyPlanning",
+  },
+  contextEngineering: {
+    eyebrow: "Advanced",
+    title: "Context Engineering Guide.",
+    lede:
+      "Read this when you are ready to understand how saved notes, transcripts, and recurring context can make AI support more proactive without turning it into fantasy autonomy.",
+    note: {
+      label: "Best reading order",
+      body: "Save this for after the basics. It is much more useful once prompting and one practical workflow already feel familiar.",
+    },
+    jumps: [],
+    showInNav: false,
+    sections: [
+      {
+        id: "context-engineering-reader",
+        eyebrow: "Reading panel",
+        title: "Read the guide one section at a time.",
+        layout: "book",
+      },
+    ],
+    bookId: "contextEngineering",
+  },
+  agenticWorkflows: {
+    eyebrow: "Advanced",
+    title: "Agentic Workflow Foundations.",
+    lede:
+      "This is the bridge from helpful prompts to bounded agentic workflows. It explains what changes when AI starts carrying work forward across steps.",
+    note: {
+      label: "Best reading order",
+      body: "Read this after the handbook and after at least one useful workflow is already working. It is about systems, not just prompts.",
+    },
+    jumps: [],
+    showInNav: false,
+    sections: [
+      {
+        id: "agentic-workflows-reader",
+        eyebrow: "Reading panel",
+        title: "Read the foundations one section at a time.",
+        layout: "book",
+      },
+    ],
+    bookId: "agenticWorkflows",
   },
   worksheet: {
     eyebrow: "Worksheet",
@@ -5127,13 +5325,13 @@ const views = {
             kicker: "Guide",
             title: "Personal AI Clone Guide",
             text: "The best first read for understanding the promise, the limits, and the safest starting use cases.",
-            href: "./pdf/personal-ai-clone-guide.pdf",
+            href: "#guide",
           },
           {
             kicker: "Prompting",
             title: "Prompt Starter Pack",
             text: "The best first skill-builder if you want clearer prompts and better output from everyday AI use.",
-            href: "./pdf/prompt-starter-pack.pdf",
+            href: "#prompt",
           },
           {
             kicker: "Handbook",
@@ -5151,19 +5349,25 @@ const views = {
             kicker: "Workflow",
             title: "Daily Admin Clone Pack",
             text: "A practical first build for planning, tasks, reminders, and routine follow-ups.",
-            href: "./pdf/daily-admin-clone-pack.pdf",
+            href: "#dailyAdmin",
           },
           {
             kicker: "Workflow",
             title: "Weekly Planning Clone Pack",
             text: "A calmer next step once the daily workflow works and you want a weekly rhythm.",
-            href: "./pdf/weekly-planning-clone-pack.pdf",
+            href: "#weeklyPlanning",
           },
           {
             kicker: "Advanced",
             title: "Context Engineering Guide",
             text: "A later-stage guide for people who are ready to work with recurring notes, transcripts, and richer context.",
-            href: "./pdf/context-engineering-guide.pdf",
+            href: "#contextEngineering",
+          },
+          {
+            kicker: "Advanced",
+            title: "Agentic Workflow Foundations",
+            text: "A practical bridge from helpful prompts into bounded, reviewable agentic workflows.",
+            href: "#agenticWorkflows",
           },
         ],
       },
@@ -5549,8 +5753,180 @@ function refreshWorksheetOutputs() {
   if (cloneOutput) cloneOutput.value = buildCloneProfile(worksheetState);
 }
 
-function renderHandbookNav() {
-  const { chapter, sections } = getHandbookState();
+function isBookView(viewKey = activeView) {
+  return Boolean(views[viewKey]?.bookId);
+}
+
+function getActiveBookId() {
+  return views[activeView]?.bookId || null;
+}
+
+function getBookState(bookId) {
+  return bookStates[bookId];
+}
+
+function parseMarkdownBook(markdown, bookId) {
+  const doc = bookDocuments[bookId];
+  const lines = markdown.replace(/\r/g, "").split("\n");
+  const chapters = [];
+  let currentChapter = null;
+  let paragraph = [];
+  let listType = "";
+  let listItems = [];
+
+  function ensureChapter(title = "Introduction") {
+    if (!currentChapter) {
+      currentChapter = {
+        id: `${bookId}-chapter-${chapters.length + 1}`,
+        number: chapters.length + 1,
+        part: doc.partLabel,
+        title: `Chapter ${chapters.length + 1}: ${title}`,
+        summary: "",
+        blocks: [],
+      };
+      chapters.push(currentChapter);
+    }
+    return currentChapter;
+  }
+
+  function flushParagraph() {
+    if (!paragraph.length || !currentChapter) return;
+    const text = paragraph.join(" ").trim();
+    if (text) {
+      currentChapter.blocks.push({ type: "p", text });
+      if (!currentChapter.summary) currentChapter.summary = text;
+    }
+    paragraph = [];
+  }
+
+  function flushList() {
+    if (!listItems.length || !currentChapter) return;
+    currentChapter.blocks.push({ type: listType, items: listItems.slice() });
+    listType = "";
+    listItems = [];
+  }
+
+  lines.forEach((rawLine) => {
+    const line = rawLine.trim();
+
+    if (!line) {
+      flushParagraph();
+      flushList();
+      return;
+    }
+
+    if (line.startsWith("# ")) {
+      flushParagraph();
+      flushList();
+      return;
+    }
+
+    if (line.startsWith("## ")) {
+      flushParagraph();
+      flushList();
+      const title = line.replace(/^##\s+/, "").trim();
+      currentChapter = {
+        id: `${bookId}-chapter-${chapters.length + 1}`,
+        number: chapters.length + 1,
+        part: doc.partLabel,
+        title: `Chapter ${chapters.length + 1}: ${title}`,
+        summary: "",
+        blocks: [],
+      };
+      chapters.push(currentChapter);
+      return;
+    }
+
+    if (line.startsWith("### ")) {
+      flushParagraph();
+      flushList();
+      ensureChapter();
+      currentChapter.blocks.push({ type: "h3", text: line.replace(/^###\s+/, "").trim() });
+      return;
+    }
+
+    if (line.startsWith("#### ")) {
+      flushParagraph();
+      flushList();
+      ensureChapter();
+      currentChapter.blocks.push({ type: "h4", text: line.replace(/^####\s+/, "").trim() });
+      return;
+    }
+
+    if (/^- /.test(line)) {
+      flushParagraph();
+      ensureChapter();
+      if (listType && listType !== "ul") flushList();
+      listType = "ul";
+      listItems.push(line.replace(/^- /, "").trim());
+      return;
+    }
+
+    if (/^\d+\.\s+/.test(line)) {
+      flushParagraph();
+      ensureChapter();
+      if (listType && listType !== "ol") flushList();
+      listType = "ol";
+      listItems.push(line.replace(/^\d+\.\s+/, "").trim());
+      return;
+    }
+
+    flushList();
+    ensureChapter();
+    paragraph.push(line);
+  });
+
+  flushParagraph();
+  flushList();
+
+  if (!chapters.length) {
+    chapters.push({
+      id: `${bookId}-chapter-1`,
+      number: 1,
+      part: doc.partLabel,
+      title: "Chapter 1: Overview",
+      summary: doc.summary,
+      blocks: [{ type: "p", text: doc.summary }],
+    });
+  }
+
+  return chapters;
+}
+
+async function ensureBookLoaded(bookId) {
+  const state = getBookState(bookId);
+  const doc = bookDocuments[bookId];
+  if (!state || state.status === "ready") return;
+  if (state.loadingPromise) {
+    await state.loadingPromise;
+    return;
+  }
+
+  state.status = "loading";
+  state.loadingPromise = fetch(doc.path)
+    .then((response) => {
+      if (!response.ok) throw new Error(`Could not load ${doc.path}`);
+      return response.text();
+    })
+    .then((text) => {
+      state.chapters = parseMarkdownBook(text, bookId);
+      state.status = "ready";
+      state.error = "";
+    })
+    .catch((error) => {
+      state.status = "error";
+      state.error = error.message || "Unable to load this document.";
+    })
+    .finally(() => {
+      state.loadingPromise = null;
+      if (activeView === Object.keys(views).find((key) => views[key].bookId === bookId)) renderView();
+    });
+
+  await state.loadingPromise;
+}
+
+function renderHandbookNav(bookId) {
+  const state = getBookState(bookId);
   const nodes = [];
 
   const home = el("button", "book-home-button");
@@ -5559,14 +5935,35 @@ function renderHandbookNav() {
   home.addEventListener("click", () => setView("start"));
   nodes.push(home);
 
+  if (state.status === "idle") {
+    ensureBookLoaded(bookId);
+  }
+
+  if (state.status === "loading" || state.status === "idle") {
+    const loading = el("div", "book-side-panel");
+    loading.innerHTML = `<div class="book-side-panel__header"><span>Loading</span><h4>Preparing the book</h4><p>Pulling the document into reading mode now.</p></div>`;
+    nodes.push(loading);
+    return nodes;
+  }
+
+  if (state.status === "error") {
+    const unavailable = el("div", "book-side-panel");
+    unavailable.innerHTML = `<div class="book-side-panel__header"><span>Unavailable</span><h4>Could not open this book</h4><p>${state.error}</p></div>`;
+    nodes.push(unavailable);
+    return nodes;
+  }
+
+  const { chapter, sections } = getBookStateView(bookId);
+
   const chapterRail = el("div", "book-chapter-strip book-chapter-strip--sidebar");
-  handbookChapters.forEach((item, index) => {
-    const button = el("button", `book-chapter-button${index === activeHandbookChapter ? " is-active" : ""}`);
+  state.chapters.forEach((item, index) => {
+    const button = el("button", `book-chapter-button${index === state.chapter ? " is-active" : ""}`);
     button.type = "button";
     button.innerHTML = `<span>Chapter ${item.number}</span><strong>${item.title.replace(/^Chapter\s+\d+:\s*/, "")}</strong>`;
     button.addEventListener("click", () => {
-      activeHandbookChapter = index;
-      activeHandbookSection = 0;
+      state.chapter = index;
+      state.section = 0;
+      state.started = true;
       renderView();
     });
     chapterRail.append(button);
@@ -5582,14 +5979,15 @@ function renderHandbookNav() {
     </div>
   `;
 
-  const prevChapter = el("button", `book-side-button${activeHandbookChapter === 0 ? " is-disabled" : ""}`);
+  const prevChapter = el("button", `book-side-button${state.chapter === 0 ? " is-disabled" : ""}`);
   prevChapter.type = "button";
-  prevChapter.disabled = activeHandbookChapter === 0;
-  prevChapter.innerHTML = `<span>Previous Chapter</span><strong>${activeHandbookChapter > 0 ? handbookChapters[activeHandbookChapter - 1].title.replace(/^Chapter\s+\d+:\s*/, "") : "Start of handbook"}</strong>`;
+  prevChapter.disabled = state.chapter === 0;
+  prevChapter.innerHTML = `<span>Previous Chapter</span><strong>${state.chapter > 0 ? state.chapters[state.chapter - 1].title.replace(/^Chapter\s+\d+:\s*/, "") : "Start of handbook"}</strong>`;
   prevChapter.addEventListener("click", () => {
-    if (activeHandbookChapter > 0) {
-      activeHandbookChapter -= 1;
-      activeHandbookSection = 0;
+    if (state.chapter > 0) {
+      state.chapter -= 1;
+      state.section = 0;
+      state.started = true;
       renderView();
     }
   });
@@ -5597,25 +5995,27 @@ function renderHandbookNav() {
 
   const sectionRail = el("div", "book-section-strip book-section-strip--sidebar");
   sections.forEach((item, index) => {
-    const button = el("button", `book-section-button${index === activeHandbookSection ? " is-active" : ""}`);
+    const button = el("button", `book-section-button${index === state.section ? " is-active" : ""}`);
     button.type = "button";
     button.innerHTML = `<span>${chapter.number}.${index + 1}</span><strong>${cleanHandbookSectionTitle(item.title)}</strong>`;
     button.addEventListener("click", () => {
-      activeHandbookSection = index;
+      state.section = index;
+      state.started = true;
       renderView();
     });
     sectionRail.append(button);
   });
   sectionPanel.append(sectionRail);
 
-  const nextChapter = el("button", `book-side-button${activeHandbookChapter === handbookChapters.length - 1 ? " is-disabled" : ""}`);
+  const nextChapter = el("button", `book-side-button${state.chapter === state.chapters.length - 1 ? " is-disabled" : ""}`);
   nextChapter.type = "button";
-  nextChapter.disabled = activeHandbookChapter === handbookChapters.length - 1;
-  nextChapter.innerHTML = `<span>Next Chapter</span><strong>${activeHandbookChapter < handbookChapters.length - 1 ? handbookChapters[activeHandbookChapter + 1].title.replace(/^Chapter\s+\d+:\s*/, "") : "End of handbook"}</strong>`;
+  nextChapter.disabled = state.chapter === state.chapters.length - 1;
+  nextChapter.innerHTML = `<span>Next Chapter</span><strong>${state.chapter < state.chapters.length - 1 ? state.chapters[state.chapter + 1].title.replace(/^Chapter\s+\d+:\s*/, "") : "End of handbook"}</strong>`;
   nextChapter.addEventListener("click", () => {
-    if (activeHandbookChapter < handbookChapters.length - 1) {
-      activeHandbookChapter += 1;
-      activeHandbookSection = 0;
+    if (state.chapter < state.chapters.length - 1) {
+      state.chapter += 1;
+      state.section = 0;
+      state.started = true;
       renderView();
     }
   });
@@ -5626,17 +6026,19 @@ function renderHandbookNav() {
 }
 
 function renderNav() {
-  if (activeView === "handbook") {
-    if (navLabel) navLabel.textContent = "Handbook";
+  if (isBookView()) {
+    const bookId = getActiveBookId();
+    ensureBookLoaded(bookId);
+    if (navLabel) navLabel.textContent = bookDocuments[bookId].eyebrow;
     navCard?.classList.add("rail-card--handbook");
-    nav.replaceChildren(...renderHandbookNav());
+    nav.replaceChildren(...renderHandbookNav(bookId));
     return;
   }
 
   if (navLabel) navLabel.textContent = "Navigate";
   navCard?.classList.remove("rail-card--handbook");
   nav.replaceChildren(
-    ...Object.entries(views).filter(([key]) => !["overview", "legacy"].includes(key)).map(([key, view]) => {
+    ...Object.entries(views).filter(([key, view]) => !["overview", "legacy"].includes(key) && view.showInNav !== false).map(([key, view]) => {
       const button = el("button", `spa-nav__button${key === activeView ? " is-active" : ""}`);
       button.type = "button";
       button.innerHTML = `<span>${view.eyebrow}</span><strong>${view.title}</strong>`;
@@ -5647,13 +6049,14 @@ function renderNav() {
 }
 
 function renderJumps(view) {
-  if (activeView === "handbook") {
+  if (view.bookId) {
+    const state = getBookState(view.bookId);
     const start = el("button", "button button--primary");
     start.type = "button";
-    start.textContent = "Start Here";
+    start.textContent = state.started ? "Return To Reading" : "Start Here";
     start.addEventListener("click", () => {
-      activeHandbookChapter = 0;
-      activeHandbookSection = 0;
+      state.started = true;
+      if (state.status === "ready" && !state.chapters.length) return;
       renderView();
       window.requestAnimationFrame(() => {
         const target = viewContent.querySelector("#book-reader-panel");
@@ -5833,11 +6236,13 @@ function groupHandbookSections(chapter) {
   return sections;
 }
 
-function getHandbookState() {
-  const chapter = handbookChapters[activeHandbookChapter];
+function getBookStateView(bookId) {
+  const state = getBookState(bookId);
+  const chapter = state.chapters[state.chapter];
+  if (!chapter) return { chapter: null, sections: [], section: null };
   const sections = groupHandbookSections(chapter);
-  activeHandbookSection = Math.max(0, Math.min(activeHandbookSection, sections.length - 1));
-  const section = sections[activeHandbookSection];
+  state.section = Math.max(0, Math.min(state.section, sections.length - 1));
+  const section = sections[state.section];
   return { chapter, sections, section };
 }
 
@@ -5845,55 +6250,88 @@ function cleanHandbookSectionTitle(title) {
   return title.replace(/^\d+\.\d+\s+/, "").trim();
 }
 
-function renderBook() {
-  const { chapter, sections, section } = getHandbookState();
+function renderBook(bookId) {
+  const state = getBookState(bookId);
+  if (state.status === "idle") {
+    ensureBookLoaded(bookId);
+  }
+
+  if (state.status === "loading" || state.status === "idle") {
+    const shell = el("div", "book-shell");
+    const loading = el("article", "book-page");
+    loading.innerHTML = `
+      <div class="book-page__header">
+        <h3>Preparing the reading view.</h3>
+        <p class="book-page__summary">Loading the source document so it can be read here chapter by chapter.</p>
+      </div>
+    `;
+    shell.append(loading);
+    return shell;
+  }
+
+  if (state.status === "error") {
+    const shell = el("div", "book-shell");
+    const error = el("article", "book-page");
+    error.innerHTML = `
+      <div class="book-page__header">
+        <h3>This book could not be opened.</h3>
+        <p class="book-page__summary">${state.error || "The source file could not be loaded."}</p>
+      </div>
+    `;
+    shell.append(error);
+    return shell;
+  }
+
+  const { chapter, sections, section } = getBookStateView(bookId);
   const shell = el("div", "book-shell");
   const reader = el("div", "book-reader");
   reader.id = "book-reader-panel";
-  const prev = el("button", `book-arrow${activeHandbookSection === 0 ? " is-disabled" : ""}`);
+  const prev = el("button", `book-arrow${state.section === 0 ? " is-disabled" : ""}`);
   prev.innerHTML = "&larr;";
   prev.type = "button";
-  prev.disabled = activeHandbookSection === 0;
+  prev.disabled = state.section === 0;
   prev.addEventListener("click", () => {
-    if (activeHandbookSection > 0) {
-      activeHandbookSection -= 1;
+    if (state.section > 0) {
+      state.section -= 1;
+      state.started = true;
       renderView();
     }
   });
 
-  const next = el("button", `book-arrow${activeHandbookSection === sections.length - 1 ? " is-disabled" : ""}`);
+  const next = el("button", `book-arrow${state.section === sections.length - 1 ? " is-disabled" : ""}`);
   next.innerHTML = "&rarr;";
   next.type = "button";
-  next.disabled = activeHandbookSection === sections.length - 1;
+  next.disabled = state.section === sections.length - 1;
   next.addEventListener("click", () => {
-    if (activeHandbookSection < sections.length - 1) {
-      activeHandbookSection += 1;
+    if (state.section < sections.length - 1) {
+      state.section += 1;
+      state.started = true;
       renderView();
     }
   });
 
   const page = el("article", "book-page");
-  const progress = Math.round(((chapter.number) / handbookChapters.length) * 100);
-  const sectionProgress = Math.round(((activeHandbookSection + 1) / sections.length) * 100);
+  const progress = Math.round((chapter.number / state.chapters.length) * 100);
+  const sectionProgress = Math.round(((state.section + 1) / sections.length) * 100);
   page.innerHTML = `
     <div class="book-page__meta">
       <span class="book-page__part">${chapter.part}</span>
-      <span class="book-page__counter">Chapter ${chapter.number} of ${handbookChapters.length}</span>
+      <span class="book-page__counter">Chapter ${chapter.number} of ${state.chapters.length}</span>
     </div>
     <div class="book-progress" aria-label="Chapter progress">
       <div class="book-progress__bar"><span style="width: ${progress}%"></span></div>
-      <strong class="book-progress__label">${progress}% through the handbook</strong>
+      <strong class="book-progress__label">${progress}% through this book</strong>
     </div>
     <div class="book-page__meta book-page__meta--subsection">
-      <span class="book-page__section-kicker">Section ${chapter.number}.${activeHandbookSection + 1}</span>
-      <span class="book-page__section-counter">${activeHandbookSection + 1} of ${sections.length} in this chapter</span>
+      <span class="book-page__section-kicker">Section ${chapter.number}.${state.section + 1}</span>
+      <span class="book-page__section-counter">${state.section + 1} of ${sections.length} in this chapter</span>
     </div>
     <div class="book-progress book-progress--subsection" aria-label="Section progress">
       <div class="book-progress__bar"><span style="width: ${sectionProgress}%"></span></div>
-      <strong class="book-progress__label">${section.title}</strong>
+      <strong class="book-progress__label">${cleanHandbookSectionTitle(section.title)}</strong>
     </div>
     <div class="book-page__header">
-      <h3>${section.title}</h3>
+      <h3>${cleanHandbookSectionTitle(section.title)}</h3>
       <p class="book-page__summary">${chapter.summary}</p>
     </div>
   `;
@@ -5925,18 +6363,22 @@ function renderSection(section) {
   if (section.layout === "steps") node.append(renderSteps(section.steps));
   if (section.layout === "ladder") node.append(renderLadder(section.stages));
   if (section.layout === "worksheet") node.append(renderWorksheet());
-  if (section.layout === "book") node.append(renderBook());
+  if (section.layout === "book") node.append(renderBook(views[activeView].bookId));
 
   return node;
 }
 
 function renderView() {
   const view = views[activeView];
+  const activeBookId = view.bookId;
+  const isBook = Boolean(activeBookId);
+  const bookStarted = isBook ? getBookState(activeBookId).started : false;
   viewEyebrow.textContent = view.eyebrow;
   viewTitle.textContent = view.title;
   viewLede.textContent = view.lede;
   viewNote.innerHTML = `<span>${view.note.label}</span><strong>${view.note.body}</strong>`;
-  document.body.classList.toggle("is-handbook-view", activeView === "handbook");
+  document.body.classList.toggle("is-book-view", isBook);
+  document.body.classList.toggle("is-book-reading", isBook && bookStarted);
   renderJumps(view);
 
   viewContent.replaceChildren(...view.sections.map(renderSection));
@@ -5946,9 +6388,12 @@ function renderView() {
 }
 
 function setView(key) {
-  if (key === "handbook" && activeView !== "handbook") {
-    activeHandbookChapter = 0;
-    activeHandbookSection = 0;
+  if (isBookView(key) && activeView !== key) {
+    const state = getBookState(views[key].bookId);
+    state.chapter = 0;
+    state.section = 0;
+    state.started = false;
+    ensureBookLoaded(views[key].bookId);
   }
   activeView = key;
   window.location.hash = key;
@@ -5958,9 +6403,12 @@ function setView(key) {
 window.addEventListener("hashchange", () => {
   const next = window.location.hash.replace("#", "");
   if (views[next] && next !== activeView) {
-    if (next === "handbook") {
-      activeHandbookChapter = 0;
-      activeHandbookSection = 0;
+    if (isBookView(next)) {
+      const state = getBookState(views[next].bookId);
+      state.chapter = 0;
+      state.section = 0;
+      state.started = false;
+      ensureBookLoaded(views[next].bookId);
     }
     activeView = next;
     renderView();
@@ -5968,14 +6416,17 @@ window.addEventListener("hashchange", () => {
 });
 
 window.addEventListener("keydown", (event) => {
-  if (activeView !== "handbook") return;
-  const { sections } = getHandbookState();
-  if (event.key === "ArrowLeft" && activeHandbookSection > 0) {
-    activeHandbookSection -= 1;
+  if (!isBookView()) return;
+  const bookId = getActiveBookId();
+  const state = getBookState(bookId);
+  if (!state.started || state.status !== "ready") return;
+  const { sections } = getBookStateView(bookId);
+  if (event.key === "ArrowLeft" && state.section > 0) {
+    state.section -= 1;
     renderView();
   }
-  if (event.key === "ArrowRight" && activeHandbookSection < sections.length - 1) {
-    activeHandbookSection += 1;
+  if (event.key === "ArrowRight" && state.section < sections.length - 1) {
+    state.section += 1;
     renderView();
   }
 });
